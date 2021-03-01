@@ -7,10 +7,10 @@
         </cloumn-item>
         <cloumn-item class="small-item" :title="`商圈事故统计：`">
           <business-accident slot></business-accident>
-        </cloumn-item> 
+        </cloumn-item>
       </div>
       <cloumn-item class="big-item" :title="`监控大屏：`">
-        <air-quality slot></air-quality>
+        <main-item slot></main-item>
       </cloumn-item>
       <div class="item-2">
         <cloumn-item class="small-item" :title="`气象灾害预警：`">
@@ -19,7 +19,6 @@
         <cloumn-item class="small-item" :title="`事故处理情况：`">
           <incident slot></incident>
         </cloumn-item>
-   
       </div>
     </div>
     <div class="flex cloumn-bottom">
@@ -45,20 +44,24 @@ import incident from "@/components/incident";
 import riskFactors from "@/components/riskFactors";
 import traffic from "@/components/traffic";
 import onDuty from "@/components/onDuty";
-
-
-
-
-
+import mainItem from "@/components/mainItem";
 
 export default {
   name: "Home",
-  components: {cloumnItem, airQuality,businessAccident,meteorological,incident,riskFactors,traffic,onDuty},
+  components: {
+    cloumnItem,
+    airQuality,
+    businessAccident,
+    meteorological,
+    incident,
+    riskFactors,
+    traffic,
+    onDuty,
+    mainItem,
+  },
   provide: {},
   data() {
-    return {
-
-    };
+    return {};
   },
 };
 </script>
@@ -73,10 +76,26 @@ export default {
   width: 100%;
   height: 100%;
 } */
-.small-item{width:600px;height:340px;}
-.big-item{width: 1180px;height:710px;margin-right:30px}
-.cloumn-bottom .big-item{height:340px}
-.item-2:first-child, .cloumn-bottom .small-item:first-child {margin-right:30px}
-.item-2 .small-item{margin-bottom: 30px;}
-.flex{align-items: baseline;}
+.small-item {
+  width: 600px;
+  height: 340px;
+}
+.big-item {
+  width: 1180px;
+  height: 710px;
+  margin-right: 30px;
+}
+.cloumn-bottom .big-item {
+  height: 340px;
+}
+.item-2:first-child,
+.cloumn-bottom .small-item:first-child {
+  margin-right: 30px;
+}
+.item-2 .small-item {
+  margin-bottom: 30px;
+}
+.flex {
+  align-items: baseline;
+}
 </style>
