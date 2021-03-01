@@ -1,92 +1,69 @@
 <template>
-	<v-chart class="chart" :option="option" />
+  <v-chart class="chart" :option="option" />
 </template>
 <script>
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
-import { SunburstChart } from 'echarts/charts'
-
+import { PieChart } from "echarts/charts";
 
 import {
   TitleComponent,
   TooltipComponent,
   LegendComponent,
-  GridComponent
+  GridComponent,
 } from "echarts/components";
 use([
   CanvasRenderer,
-  SunburstChart,
+  PieChart,
   TitleComponent,
   TooltipComponent,
   LegendComponent,
-  GridComponent  ]);
-  
-  var optionData = [{
-    name: 'Grandpa',
-    children: [{
-        name: 'Uncle Leo',
-        value: 15,
-        children: [{
-            name: 'Cousin Jack',
-            value: 2
-        }, {
-            name: 'Cousin Mary',
-            value: 5,
-            children: [{
-                name: 'Jackson',
-                value: 2
-            }]
-        }, {
-            name: 'Cousin Ben',
-            value: 4
-        }]
-    }, {
-        name: 'Father',
-        value: 10,
-        children: [{
-            name: 'Me',
-            value: 5
-        }, {
-            name: 'Brother Peter',
-            value: 1
-        }]
-    }]
-}, {
-    name: 'Nancy',
-    children: [{
-        name: 'Uncle Nike',
-        children: [{
-            name: 'Cousin Betty',
-            value: 1
-        }, {
-            name: 'Cousin Jenny',
-            value: 2
-        }]
-    }]
-}];
-
+  GridComponent,
+]);
 export default {
   components: {},
-  data () {
-		return {
+  data() {
+    return {
       option: {
-        
-        series: {
-            type: 'sunburst',
-            // emphasis: {
-            //     focus: 'ancestor'
-            // },
-            data: optionData,
-            radius: [0, '90%'],
+        legend: {
+          type: "plain",
+          orient: "vertical",
+          right: "0%",
+          textStyle: {
+            color: "#a3fffe",
+            fontSize: "16",
+          },
+          itemHeight: 15,
+          itemWidth: 15,
+          borderRadius: 0,
+        },
+
+        series: [
+          {
+            name: "风险因素",
+            type: "pie",
+            radius: [50, 120],
+            center: ["50%", "50%"],
+            roseType: "area",
+            itemStyle: {
+              borderRadius: 8,
+            },
+            data: [
+              { value: 40, name: "道路危险" },
+              { value: 38, name: "火灾风险" },
+              { value: 32, name: "人员风险" },
+              { value: 30, name: "爆破风险" },
+              { value: 28, name: "顶板风险" },
+            ],
             label: {
-                rotate: 'radial'
-            }
-        }
-      }
-    }
-	},
-}
+              show: false,
+            },
+            left: "0%",
+          },
+        ],
+      },
+    };
+  },
+};
 </script>
-<style scoped>
-	
-</style>
+<style scoped></style>
