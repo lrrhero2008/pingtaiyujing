@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ECharts from 'vue-echarts'
+import './assets/style/style.css'
+
 
 Vue.config.productionTip = false
 Vue.component('v-chart', ECharts)

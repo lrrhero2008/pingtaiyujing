@@ -1,10 +1,18 @@
 <template>
-  <v-chart class="chart" :option="option" />
+<v-chart class="chart" :option="option" />
 </template>
+
 <script>
-import { use } from "echarts/core";
-import { CanvasRenderer } from "echarts/renderers";
-import { BarChart, LineChart } from "echarts/charts";
+import {
+  use
+} from "echarts/core";
+import {
+  CanvasRenderer
+} from "echarts/renderers";
+import {
+  BarChart,
+  LineChart
+} from "echarts/charts";
 
 import {
   TitleComponent,
@@ -35,25 +43,25 @@ export default {
             fontSize: "16",
           },
         },
-        xAxis: [
-          {
-            type: "category",
-            data: ["宁波", "衡州", "杭州", "台州", "温州"],
-            axisPointer: {
-              type: "shadow",
-            },
-            splitLine: {
-              show: false,
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#a3fffe",
-              },
+        xAxis: [{
+          type: "category",
+          data: ["宁波", "衡州", "杭州", "台州", "温州"],
+          axisPointer: {
+            type: "shadow",
+          },
+          splitLine: {
+            show: false,
+          },
+          axisLine: {
+            lineStyle: {
+              color: "#a3fffe",
             },
           },
-        ],
-        yAxis: [
-          {
+          axisTick: {
+            show: false
+          }
+        }, ],
+        yAxis: [{
             type: "value",
             min: 0,
             max: 200,
@@ -66,6 +74,7 @@ export default {
                 color: "#a3fffe",
               },
             },
+
           },
           {
             type: "value",
@@ -78,8 +87,7 @@ export default {
             },
           },
         ],
-        series: [
-          {
+        series: [{
             name: "事故总数",
             type: "bar",
             data: [120, 96, 77, 53, 70],
@@ -90,8 +98,7 @@ export default {
                 y: 0,
                 x2: 0,
                 y2: 1,
-                colorStops: [
-                  {
+                colorStops: [{
                     offset: 0,
                     color: "#9b65e5",
                   },
@@ -115,8 +122,7 @@ export default {
                 y: 0,
                 x2: 0,
                 y2: 1,
-                colorStops: [
-                  {
+                colorStops: [{
                     offset: 0,
                     color: "#47adf5",
                   },
@@ -140,8 +146,7 @@ export default {
                 y: 0,
                 x2: 0,
                 y2: 1,
-                colorStops: [
-                  {
+                colorStops: [{
                     offset: 0,
                     color: "#52f86b",
                   },
@@ -169,4 +174,5 @@ export default {
   },
 };
 </script>
+
 <style scoped></style>

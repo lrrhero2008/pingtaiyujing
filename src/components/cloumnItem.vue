@@ -26,7 +26,7 @@ export default {
 
 .item-border {
   content: "";
-  box-shadow: inset 0 0 0 2px;
+  box-shadow: inset 0 0 0 1px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -34,16 +34,16 @@ export default {
   right: 0;
 }
 .top-left {
-  clip-path: polygon(0 0, 10% 0, 0 6%);
+  clip-path: polygon(0 0, 3% 0, 0 3%);
 }
 .bottom-left {
-  clip-path: polygon(0 94%, 10% 100%, 0 100%);
+  clip-path: polygon(0 97%, 3% 100%, 0 100%);
 }
 .top-right {
-  clip-path: polygon(100% 0, 100% 6%, 90% 0);
+  clip-path: polygon(100% 0, 100% 3%, 97% 0);
 }
 .bottom-right {
-  clip-path: polygon(100% 94%, 100% 100%, 90% 100%);
+  clip-path: polygon(100% 97%, 100% 100%, 97% 100%);
 }
 .title{font-size: 18px;color:#fff;}
 </style>
