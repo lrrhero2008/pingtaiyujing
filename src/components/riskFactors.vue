@@ -38,7 +38,9 @@ export default {
           itemWidth: 12,
           itemGap: 20,
         },
-
+        tooltip: {
+          trigger: "item",
+        },
         series: [
           {
             name: "风险因素",
