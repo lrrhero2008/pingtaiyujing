@@ -59,7 +59,6 @@ export default {
     onDuty,
     mainItem,
   },
-  provide: {},
   data() {
     return {};
   },
