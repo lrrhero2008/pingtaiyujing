@@ -112,11 +112,12 @@ export default {
         lat: 0,
       },
       zoom: 15,
+      address: {}
     };
   },
   mounted() {
     getProjectListApi().then((res) => {
-      console.log(res);
+      this.address = res.data.address
     });
   },
   methods: {

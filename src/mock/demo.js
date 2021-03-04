@@ -26,14 +26,20 @@ export default [
         //   }
         // }
 
-        let _fileter_list = projectList
-        console.log(_fileter_list)
-        return {
-          code: 200,
-          message: "操作成功",
-          data: _fileter_list
-        }
-        // 使用return返回前端需要的数据
+      // const allowed = ['name', 'address'];
+
+      let _fileter_list = [];
+
+      projectList.list.forEach(data => {
+        _fileter_list.push(data['address'])
+      });
+
+      return {
+        code: 200,
+        message: "success",
+        address: _fileter_list
+      }
+      // 使用return返回前端需要的数据
     }
   }
   // 多个接口
