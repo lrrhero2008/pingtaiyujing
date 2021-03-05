@@ -2,11 +2,11 @@
   <div class="home">
     <div class="flex cloumn-top">
       <div class="item-2">
-        <cloumn-item class="small-item" :title="`环境空气质量：`">
-          <air-quality slot></air-quality>
+        <cloumn-item class="small-item" :title="`景区景点介绍：`">
+          <introduce slot></introduce>
         </cloumn-item>
-        <cloumn-item class="small-item" :title="`商圈事故统计：`">
-          <business-accident slot></business-accident>
+        <cloumn-item class="small-item" :title="`商业网点介绍：`">
+          <store slot></store>
         </cloumn-item>
       </div>
       <cloumn-item class="big-item" :title="`监控大屏：`">
@@ -37,8 +37,8 @@
 
 <script>
 import cloumnItem from "@/components/home/cloumnItem";
-import airQuality from "@/components/home/airQuality";
-import businessAccident from "@/components/home/businessAccident";
+import introduce from "@/components/business/introduce";
+import store from "@/components/business/store";
 import meteorological from "@/components/home/meteorological";
 import incident from "@/components/home/incident";
 import riskFactors from "@/components/home/riskFactors";
@@ -50,8 +50,8 @@ export default {
   name: "Home",
   components: {
     cloumnItem,
-    airQuality,
-    businessAccident,
+    introduce,
+    store,
     meteorological,
     incident,
     riskFactors,

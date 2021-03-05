@@ -18,8 +18,8 @@
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody class="event-list-wrap" :class="{ 'animate-up': animateUp }">
+            <!-- <tr>
               <td>
                 <div class="bg2">
                   <div class="yellow-bg event-icon"></div>
@@ -59,8 +59,8 @@
               <td>
                 <div class="bg2">绍兴市越城区鲁迅中路187号东门一级警告</div>
               </td>
-            </tr>
-            <tr>
+            </tr> -->
+            <tr v-for="(address, i) in addresses" :key="i">
               <td>
                 <div class="bg2">
                   <div class="yellow-bg event-icon"></div>
@@ -70,7 +70,10 @@
                 <div class="bg2">预警</div>
               </td>
               <td>
-                <div class="bg2">绍兴市越城区鲁迅中路187号东门一级警告</div>
+                <div class="bg2">
+                  <span>{{ address }}</span
+                  >一级警告
+                </div>
               </td>
             </tr>
           </tbody>
@@ -98,7 +101,7 @@
 <script>
 import BaiduMap from "vue-baidu-map/components/map/Map.vue";
 import BmTraffic from "vue-baidu-map/components/layers/Traffic.vue";
-import { getProjectListApi } from "@/api/api.js";
+import { getAddress } from "@/api/api.js";
 
 export default {
   components: {
@@ -112,13 +115,16 @@ export default {
         lat: 0,
       },
       zoom: 15,
-      address: {}
+      addresses: {},
+      animateUp: false,
+      timer: null,
     };
   },
   mounted() {
-    getProjectListApi().then((res) => {
-      this.address = res.data.address
+    getAddress().then((res) => {
+      this.addresses = res.data.address;
     });
+    this.timer = setInterval(this.scrollAnimate, 2000);
   },
   methods: {
     handler({ BMap, map }) {
@@ -130,6 +136,17 @@ export default {
     getMapCenter(address) {
       console.log(address.innerHTML);
     },
+    scrollAnimate() {
+      this.animateUp = true;
+      setTimeout(() => {
+        this.addresses.push(this.addresses[0]);
+        this.addresses.shift();
+        this.animateUp = false;
+      }, 500);
+    },
+  },
+  destroyed() {
+    clearInterval(this.timer);
   },
 };
 </script>
@@ -184,7 +201,7 @@ export default {
 }
 
 .event-main table .bg {
-  background: rgba(35, 64, 74, 0.5);
+  background: #18333c;
   padding: 10px;
   margin-bottom: 3px;
 }
@@ -238,5 +255,23 @@ export default {
   border: 1px solid transparent;
   border-radius: 10px;
   overflow: hidden;
+}
+
+.event-list {
+  height: 215px;
+  overflow: hidden;
+}
+.event-list thead {
+  position: relative;
+  z-index: 1;
+}
+.event-list-wrap {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+.event-list .animate-up {
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-43px);
 }
 </style>

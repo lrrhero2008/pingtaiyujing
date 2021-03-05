@@ -79,7 +79,8 @@ export default {
 * {
   box-sizing: border-box;
 }
-body, p {
+body,
+p {
   margin: 0;
 }
 .flex {
@@ -87,8 +88,17 @@ body, p {
   align-items: center;
   height: 100%;
 }
-table{border-collapse: collapse;}
+table {
+  border-collapse: collapse;
+}
 /* table,td {
     border: 1px solid #333;
 } */
+ul {
+  list-style: none;
+  padding: 0;
+}
+.responsive-img {
+  max-width: 100%;
+}
 </style>
