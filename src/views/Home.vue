@@ -95,6 +95,6 @@ export default {
   margin-bottom: 30px;
 }
 .flex {
-  align-items: baseline;
+  align-items: start;
 }
 </style>

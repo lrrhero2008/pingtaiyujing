@@ -124,7 +124,7 @@ export default {
     getAddress().then((res) => {
       this.addresses = res.data.address;
     });
-    this.timer = setInterval(this.scrollAnimate, 2000);
+    this.timer = setInterval(this.scrollAnimate, 3000);
   },
   methods: {
     handler({ BMap, map }) {

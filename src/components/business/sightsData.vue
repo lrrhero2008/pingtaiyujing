@@ -5,13 +5,13 @@
         <thead>
           <tr>
             <th>
-              <div class="bg">商铺名称</div>
+              <div class="bg">店铺名称</div>
             </th>
             <th>
-              <div class="bg">地址</div>
+              <div class="bg">活动名称</div>
             </th>
             <th>
-              <div class="bg">销量</div>
+              <div class="bg">活动时间</div>
             </th>
           </tr>
         </thead>
@@ -45,16 +45,16 @@ export default {
       animateUp: false,
       timer: null,
       stores: [
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "48" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "23" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "52" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "66" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "29" },
-        { name: "孔乙己土特产", address: "鲁迅中路178号", sales: "33" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "46" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "62" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "89" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "102" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
+        { name: "王星行", address: "全场9.5折", sales: "11.9 ～ 11.11" },
       ],
     };
   },
@@ -98,13 +98,13 @@ p {
 }
 .store-info table {width:100%;color:#fff;margin-top:18px;}
 .store-info table .bg {
-  background: #154144;
+  background: #14272e;
   padding: 8px;
   margin-bottom: 3px;
 }
 
 .store-info table .bg2 {
-  background: rgba(13, 50, 55, 0.7);
+  background: rgba(11, 28, 35, 0.7);
   padding: 8px;
   margin-bottom: 3px;
 }

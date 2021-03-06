@@ -5,29 +5,29 @@
         <thead>
           <tr>
             <th>
-              <div class="bg">商铺名称</div>
+              <div class="bg">姓名</div>
             </th>
             <th>
-              <div class="bg">地址</div>
+              <div class="bg">维修时间</div>
             </th>
             <th>
-              <div class="bg">销量</div>
+              <div class="bg">年龄</div>
             </th>
           </tr>
         </thead>
         <tbody class="store-list-wrap" :class="{ 'animate-up': animateUp }">
-          <tr v-for="(store, i) in stores" :key="i">
+          <tr v-for="(person, i) in persons" :key="i">
             <td>
               <div class="bg2">
-                {{ store.name }}
+                {{ person.name }}
               </div>
             </td>
             <td>
-              <div class="bg2">{{ store.address }}</div>
+              <div class="bg2">{{ person.time }}</div>
             </td>
             <td>
               <div class="bg2">
-                {{ store.sales }}
+                {{ person.age }}
               </div>
             </td>
           </tr>
@@ -44,17 +44,17 @@ export default {
     return {
       animateUp: false,
       timer: null,
-      stores: [
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "48" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "23" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "52" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "66" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "29" },
-        { name: "孔乙己土特产", address: "鲁迅中路178号", sales: "33" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "46" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "62" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "89" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "102" },
+      persons: [
+        { name: "王星行", time: "2021-02-25  12:00:46~13:00;45", age: "48" },
+        { name: "吉祥混沌", time: "2021-02-25  12:00~13:00", age: "23" },
+        { name: "水星记", time: "2021-02-25  12:00~13:00", age: "52" },
+        { name: "王星行", time: "2021-02-25  12:00~13:00", age: "36" },
+        { name: "王星行", time: "2021-02-25  12:00~13:00", age: "29" },
+        { name: "王星行", time: "2021-02-25  12:00~13:00", age: "33" },
+        { name: "王星行", time: "2021-02-25  12:00~13:00", age: "26" },
+        { name: "水星记", time: "2021-02-25  12:00~13:00", age: "42" },
+        { name: "水星记", time: "2021-02-25  12:00~13:00", age: "29" },
+        { name: "吉祥混沌", time: "2021-02-25  12:00~13:00", age: "32" },
       ],
     };
   },
@@ -62,8 +62,8 @@ export default {
     scrollAnimate() {
       this.animateUp = true;
       setTimeout(() => {
-        this.stores.push(this.stores[0]);
-        this.stores.shift();
+        this.persons.push(this.persons[0]);
+        this.persons.shift();
         this.animateUp = false;
       }, 500);
     },
@@ -98,13 +98,13 @@ p {
 }
 .store-info table {width:100%;color:#fff;margin-top:18px;}
 .store-info table .bg {
-  background: #154144;
+  background: #14282e;
   padding: 8px;
   margin-bottom: 3px;
 }
 
 .store-info table .bg2 {
-  background: rgba(13, 50, 55, 0.7);
+  background: rgba(12, 28, 34, 0.7);
   padding: 8px;
   margin-bottom: 3px;
 }

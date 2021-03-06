@@ -9,27 +9,27 @@
           <store slot></store>
         </cloumn-item>
       </div>
-      <cloumn-item class="big-item" :title="`监控大屏：`">
-        <main-item slot></main-item>
+      <cloumn-item class="big-item" >
+        <video-item slot></video-item>
       </cloumn-item>
       <div class="item-2">
-        <cloumn-item class="small-item" :title="`气象灾害预警：`">
-          <meteorological slot></meteorological>
+        <cloumn-item class="small-item" :title="`产品直播`">
+          <streamer slot></streamer>
         </cloumn-item>
-        <cloumn-item class="small-item" :title="`事故处理情况：`">
-          <incident slot></incident>
+        <cloumn-item class="small-item" :title="`景点大数据`">
+          <sights-data slot></sights-data>
         </cloumn-item>
       </div>
     </div>
     <div class="flex cloumn-bottom">
-      <cloumn-item class="small-item" :title="`风险因素：`">
-        <risk-factors slot></risk-factors>
+      <cloumn-item class="small-item" :title="`网红打卡点介绍：`">
+        <sights-pic slot></sights-pic>
       </cloumn-item>
-      <cloumn-item class="big-item" :title="`交通拥堵情况预警：`">
-        <traffic slot></traffic>
+      <cloumn-item class="big-item" :title="`商业和文化活动介绍：`">
+        <business-culture slot></business-culture>
       </cloumn-item>
-      <cloumn-item class="small-item" :title="`警卫执勤情况：`">
-        <onDuty slot></onDuty>
+      <cloumn-item class="small-item" :title="`景区播报：`">
+        <broadcast slot></broadcast>
       </cloumn-item>
     </div>
   </div>
@@ -39,12 +39,12 @@
 import cloumnItem from "@/components/home/cloumnItem";
 import introduce from "@/components/business/introduce";
 import store from "@/components/business/store";
-import meteorological from "@/components/home/meteorological";
-import incident from "@/components/home/incident";
-import riskFactors from "@/components/home/riskFactors";
-import traffic from "@/components/home/traffic";
-import onDuty from "@/components/home/onDuty";
-import mainItem from "@/components/home/mainItem";
+import streamer from "@/components/business/streamer";
+import sightsData from "@/components/business/sightsData";
+import sightsPic from "@/components/business/sightsPic";
+import businessCulture from "@/components/business/businessCulture";
+import broadcast from "@/components/business/broadcast";
+import videoItem from "@/components/business/videoItem";
 
 export default {
   name: "Home",
@@ -52,12 +52,12 @@ export default {
     cloumnItem,
     introduce,
     store,
-    meteorological,
-    incident,
-    riskFactors,
-    traffic,
-    onDuty,
-    mainItem,
+    streamer,
+    sightsData,
+    sightsPic,
+    businessCulture,
+    broadcast,
+    videoItem,
   },
   data() {
     return {};
@@ -95,6 +95,6 @@ export default {
   margin-bottom: 30px;
 }
 .flex {
-  align-items: baseline;
+  align-items: start;
 }
 </style>

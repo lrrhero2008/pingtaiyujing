@@ -2,33 +2,15 @@
   <section class="store-info">
     <div class="store-list">
       <table>
-        <thead>
-          <tr>
-            <th>
-              <div class="bg">商铺名称</div>
-            </th>
-            <th>
-              <div class="bg">地址</div>
-            </th>
-            <th>
-              <div class="bg">销量</div>
-            </th>
-          </tr>
-        </thead>
         <tbody class="store-list-wrap" :class="{ 'animate-up': animateUp }">
-          <tr v-for="(store, i) in stores" :key="i">
+          <tr v-for="(activity, i) in activities" :key="i">
             <td>
               <div class="bg2">
-                {{ store.name }}
+                <span class="icon-biaoqian"></span>  
               </div>
             </td>
             <td>
-              <div class="bg2">{{ store.address }}</div>
-            </td>
-            <td>
-              <div class="bg2">
-                {{ store.sales }}
-              </div>
+              <div class="bg2">{{ activity.name }}</div>
             </td>
           </tr>
         </tbody>
@@ -44,17 +26,17 @@ export default {
     return {
       animateUp: false,
       timer: null,
-      stores: [
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "48" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "23" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "52" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "66" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "29" },
-        { name: "孔乙己土特产", address: "鲁迅中路178号", sales: "33" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "46" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "62" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "89" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "102" },
+      activities: [
+        { name: "正宗的绍兴臭豆腐买一送一" },
+        { name: "王星行全场9.5折，大采购呀" },
+        { name: "王星行全场9.5折，大采购呀" },
+        { name: "正宗的绍兴臭豆腐买一送一" },
+        { name: "王星行全场9.5折，大采购呀" },
+        { name: "正宗的绍兴臭豆腐买一送一" },
+        { name: "王星行全场9.5折，大采购呀" },
+        { name: "正宗的绍兴臭豆腐买一送一" },
+        { name: "王星行全场9.5折，大采购呀" },
+        { name: "正宗的绍兴臭豆腐买一送一" },
       ],
     };
   },
@@ -62,8 +44,8 @@ export default {
     scrollAnimate() {
       this.animateUp = true;
       setTimeout(() => {
-        this.stores.push(this.stores[0]);
-        this.stores.shift();
+        this.activities.push(this.activities[0]);
+        this.activities.shift();
         this.animateUp = false;
       }, 500);
     },
@@ -80,33 +62,18 @@ export default {
 };
 </script>
 <style scoped>
-.flex {
-  justify-content: space-around;
-}
-.images {
-  padding: 0 30px;
-}
-.images img {
-  border-radius: 5px;
-}
-.images li {
-  width: 23%;
-}
-p {
-  font-size: 18px;
-  color: #fff;
-}
+.icon-biaoqian{font-size:24px;color:#be3625}
 .store-info table {width:100%;color:#fff;margin-top:18px;}
 .store-info table .bg {
-  background: #154144;
+  background: #14272e;
   padding: 8px;
   margin-bottom: 3px;
 }
 
 .store-info table .bg2 {
-  background: rgba(13, 50, 55, 0.7);
+  background: rgba(11, 28, 35, 0.7);
   padding: 8px;
-  margin-bottom: 3px;
+  margin-bottom: 3px;height:39px
 }
 
 
@@ -118,6 +85,10 @@ p {
 .store-info table td:last-child .bg2,
 .store-info table th:last-child .bg {
   border-radius: 0 10px 10px 0;height: 39px;
+}
+.store-info table tr:nth-child(4) td .bg2{
+  background:#1c3238;
+  font-size:20px;line-height:24px
 }
 
 .store-info table td,

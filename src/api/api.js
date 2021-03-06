@@ -3,7 +3,7 @@ import request from "./axios";
 // 获取地址接口
 function getAddress(data) {
   return request({
-    url: "/Api/getAddress/",
+    url: "/Api/getAddress",
     method: 'post',
     data
   });
@@ -17,17 +17,17 @@ function getImages(data) {
     data
   });
 }
-
-function delProjectApi(data) {
+//获取商铺接口
+function getStores(data) {
   return request({
-    url: "/Api/Project/Add",
+    url: "/Api/getStores",
     method: 'post',
     data
   });
 }
 
 export {
-  getAddress, // 1获取部门列表接口
-  getImages, // 2添加项目接口
-  delProjectApi, // 3删除项目接口
+  getAddress, 
+  getImages, 
+  getStores,
 }

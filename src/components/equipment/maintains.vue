@@ -5,30 +5,22 @@
         <thead>
           <tr>
             <th>
-              <div class="bg">商铺名称</div>
+              <div class="bg">维修时间</div>
             </th>
             <th>
-              <div class="bg">地址</div>
-            </th>
-            <th>
-              <div class="bg">销量</div>
+              <div class="bg">维修次数</div>
             </th>
           </tr>
         </thead>
         <tbody class="store-list-wrap" :class="{ 'animate-up': animateUp }">
-          <tr v-for="(store, i) in stores" :key="i">
+          <tr v-for="(maintan, i) in maintans" :key="i">
             <td>
               <div class="bg2">
-                {{ store.name }}
+                {{ maintan.name }}
               </div>
             </td>
             <td>
-              <div class="bg2">{{ store.address }}</div>
-            </td>
-            <td>
-              <div class="bg2">
-                {{ store.sales }}
-              </div>
+              <div class="bg2">{{ maintan.times }}</div>
             </td>
           </tr>
         </tbody>
@@ -44,17 +36,16 @@ export default {
     return {
       animateUp: false,
       timer: null,
-      stores: [
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "48" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "23" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "52" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "66" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "29" },
-        { name: "孔乙己土特产", address: "鲁迅中路178号", sales: "33" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "46" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "62" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "89" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "102" },
+      maintans: [
+        { name: "烟管报警器", times: "34"},
+        { name: "消防栓", times: "25"},
+        { name: "东北大门左上角监控器", times: "14"},
+        { name: "大厅播放器", times: "46"},
+        { name: "水管", times: "39"},
+        { name: "烟管报警器", times: "23"},
+        { name: "消防栓", times: "16"},
+        { name: "水管", times: "24"},
+        { name: "东北大门左上角监控器", times: "29"},
       ],
     };
   },
@@ -62,8 +53,8 @@ export default {
     scrollAnimate() {
       this.animateUp = true;
       setTimeout(() => {
-        this.stores.push(this.stores[0]);
-        this.stores.shift();
+        this.maintans.push(this.maintans[0]);
+        this.maintans.shift();
         this.animateUp = false;
       }, 500);
     },
@@ -98,13 +89,13 @@ p {
 }
 .store-info table {width:100%;color:#fff;margin-top:18px;}
 .store-info table .bg {
-  background: #154144;
+  background: #15363b;
   padding: 8px;
   margin-bottom: 3px;
 }
 
 .store-info table .bg2 {
-  background: rgba(13, 50, 55, 0.7);
+  background: rgba(14, 42, 48, 0.7);
   padding: 8px;
   margin-bottom: 3px;
 }

@@ -74,7 +74,12 @@ export default {
                 color: "#a3fffe",
               },
             },
-
+            splitLine: {
+              lineStyle: {
+                color: "#114556",
+                type: "dotted"
+              }
+            }
           },
           {
             type: "value",

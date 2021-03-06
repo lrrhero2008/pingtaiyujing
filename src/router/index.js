@@ -6,14 +6,20 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: '平台预警',
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
   {
     path: '/business',
-    name: 'Business',
+    name: '商圈展示',
     component: () => import(/* webpackChunkName: "about" */ '../views/Business.vue')
   },
+  {
+    path: '/equipment',
+    name: '智慧设备管理',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Equipment.vue')
+  },
+
 
 
 ]

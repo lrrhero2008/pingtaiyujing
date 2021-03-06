@@ -14,7 +14,7 @@ const projectList = Mock.mock({
 
 export default [
   {
-    url: '/Api/getAddress/',
+    url: '/Api/getAddress',
     type: 'post',
     response: () => {
         //let _fileter_list = [];
@@ -47,18 +47,24 @@ export default [
     url: '/Api/getImages',
     type: 'post',
     response: () => {
-        //let _fileter_list = [];
-        // if(res.body.key){
-        //   let _fileter_list = projectList.filter(i => i.name == res.body.key)
-        //   return {
-        //     code: 200,
-        //     message: "操作成功",
-        //     data: _fileter_list
-        //   }
-        // }
+      let _fileter_list = [];
 
-      // const allowed = ['name', 'address'];
+      projectList.list.forEach(data => {
+        _fileter_list.push(data['images'])
+      });
 
+      return {
+        code: 200,
+        message: "success",
+        address: _fileter_list
+      }
+      // 使用return返回前端需要的数据
+    }
+  },
+  {
+    url: '/Api/getStores',
+    type: 'post',
+    response: () => {
       let _fileter_list = [];
 
       projectList.list.forEach(data => {
