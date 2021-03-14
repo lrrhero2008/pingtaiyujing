@@ -27,6 +27,12 @@ export default {
       option: {
         tooltip: {},
         legend: {},
+        grid: {
+          x: 40,
+          y: 20,
+          x2: 40,
+          y2: 20
+        },
         xAxis: { max: 100, show: false },
         yAxis: {
           data: ["其他", "水灾", "道路", "人员", "火灾"],
@@ -74,8 +80,8 @@ export default {
               },
               borderRadius: [15, 15, 15, 15],
             },
-            //barMaxWidth: 17,
-            barCategoryGap: "20",
+            barMaxWidth: 17,
+            // barCategoryGap: "20",
           },
         ],
       },

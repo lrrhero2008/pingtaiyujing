@@ -26,8 +26,18 @@ function getStores(data) {
   });
 }
 
+//商品销售排行
+function getRank(data) {
+  return request({
+    url: "https://bdkjv.g2ma.com/papi/oms/sales-statistics/turnoverStatistics",
+    method: 'post',
+    data
+  });
+}
+
 export {
   getAddress, 
   getImages, 
   getStores,
+  getRank
 }

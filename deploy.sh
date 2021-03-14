@@ -18,11 +18,11 @@ git commit -m 'deploy'
 
 # 部署到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-git push -f git@github.com:lrrhero2008/pingtaiyujing.git main
+git push -f https://github.com/lrrhero2008/pingtaiyujing.git main
 
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
-git push -f git@github.com:lrrhero2008/pingtaiyujing.git main:gh-pages
+git push -f https://github.com/lrrhero2008/pingtaiyujing.git main:gh-pages
 
 cd -

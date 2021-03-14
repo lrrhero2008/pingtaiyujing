@@ -80,22 +80,6 @@ export default {
 };
 </script>
 <style scoped>
-.flex {
-  justify-content: space-around;
-}
-.images {
-  padding: 0 30px;
-}
-.images img {
-  border-radius: 5px;
-}
-.images li {
-  width: 23%;
-}
-p {
-  font-size: 18px;
-  color: #fff;
-}
 .store-info table {width:100%;color:#fff;margin-top:18px;}
 .store-info table .bg {
   background: #14282e;

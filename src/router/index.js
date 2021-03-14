@@ -19,13 +19,28 @@ const routes = [
     name: '智慧设备管理',
     component: () => import(/* webpackChunkName: "about" */ '../views/Equipment.vue')
   },
+  {
+    path: '/jingdianguanli',
+    name: '景区景点管理',
+    component: () => import(/* webpackChunkName: "about" */ '../views/jingdianguanli.vue')
+  },
+  {
+    path: '/shangpuguanli',
+    name: '街区商铺管理',
+    component: () => import(/* webpackChunkName: "about" */ '../views/shangPuGuanLi.vue')
+  },
+  {
+    path: '/renliufenxi',
+    name: '动态人流分析',
+    component: () => import(/* webpackChunkName: "about" */ '../views/renLiuFenXi.vue')
+  },
 
 
 
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes
 })
 

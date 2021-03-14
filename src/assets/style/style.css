@@ -25,6 +25,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-beibao:before {
+  content: "\e90a";
+}
+.icon-tongji:before {
+  content: "\e90b";
+}
+.icon-tuandui-tianchong:before {
+  content: "\e90c";
+}
+.icon-yiqiyibiao:before {
+  content: "\e90d";
+}
+.icon-jiangbei:before {
+  content: "\e908";
+}
+.icon-jiangbei:before {
+  content: "\e908";
+}
+.icon-shangsheng:before {
+  content: "\e909";
+}
+.icon-search:before {
+  content: "\e907";
+}
 .icon-fangda:before {
   content: "\e904";
 }

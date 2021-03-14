@@ -19,47 +19,6 @@
             </tr>
           </thead>
           <tbody class="event-list-wrap" :class="{ 'animate-up': animateUp }">
-            <!-- <tr>
-              <td>
-                <div class="bg2">
-                  <div class="yellow-bg event-icon"></div>
-                </div>
-              </td>
-              <td>
-                <div class="bg2">预警</div>
-              </td>
-              <td>
-                <div class="bg2">
-                  <span @click="getMapCenter">绍兴市越城区鲁迅中路187号东门</span>一级警告
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="bg2">
-                  <div class="red-bg event-icon"></div>
-                </div>
-              </td>
-              <td>
-                <div class="bg2">告警</div>
-              </td>
-              <td>
-                <div class="bg2">绍兴市越城区鲁迅中路187号东门一级警告</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="bg2">
-                  <div class="yellow-bg event-icon"></div>
-                </div>
-              </td>
-              <td>
-                <div class="bg2">预警</div>
-              </td>
-              <td>
-                <div class="bg2">绍兴市越城区鲁迅中路187号东门一级警告</div>
-              </td>
-            </tr> -->
             <tr v-for="(address, i) in addresses" :key="i">
               <td>
                 <div class="bg2">
