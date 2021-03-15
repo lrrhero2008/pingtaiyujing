@@ -36,27 +36,31 @@ export default {
             },
           },
         },
-
+        // legend: {
+        //   data: ["开", "关"],
+        //   itemWidth: 10,
+        //   itemHeight: 10,
+        //   borderRadius: 0,
+        //   icon: "rect",
+        //   top: "9%",
+        //   textStyle: {
+        //     fontSize: 16,
+        //     color: "#a3fffe",
+        //   },
+        //   selectedMode: false,
+        // },
         grid: {
-          top: "10%",
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
+          top: "20",
+          left: "10",
+          right: "10",
+          bottom: "10",
           containLabel: true,
         },
         xAxis: [
           {
             type: "category",
             boundaryGap: false,
-            data: [
-              "0～2时",
-              "3～4时",
-              "6～8时",
-              "10～12时",
-              "14～16时",
-              "18～20时",
-              "22～24时",
-            ],
+            data: ["0～2时", "3～4时", "6～8时", "10～12时", "14～16时", "18～20时"],
             axisTick: {
               show: false,
             },
@@ -74,12 +78,12 @@ export default {
         yAxis: [
           {
             type: "value",
+            interval: 200,
             splitLine: {
               lineStyle: {
                 color: "#114556",
               },
             },
-
             axisLabel: {
               show: true,
               color: "#a3fffe",
@@ -89,22 +93,52 @@ export default {
         ],
         series: [
           {
-            name: "人数",
+            name: "开",
             type: "line",
+            stack: "总量",
             emphasis: {
               focus: "series",
             },
-            data: [320, 402, 341, 24, 90, 130, 210],
+            data: [150, 232, 201, 154, 190, 330],
             areaStyle: {
               opacity: 0.8,
               color: new graphic.LinearGradient(0, 0, 0, 1, [
                 {
                   offset: 0,
-                  color: "rgba(157, 227, 246, 0.9)",
+                  color: "rgba(102, 128, 112, .8)",
                 },
                 {
                   offset: 1,
-                  color: "rgba(9, 36, 49, 0.3)",
+                  color: "rgba(255, 208, 106, .5)",
+                },
+              ]),
+            },
+            lineStyle: {
+              color: "#264e53",
+              width: 0.5,
+            },
+            itemStyle: {
+              opacity: 0,
+            },
+          },
+          {
+            name: "关",
+            type: "line",
+            stack: "总量",
+            emphasis: {
+              focus: "series",
+            },
+            data: [120, 132, 101, 134, 90, 230],
+            areaStyle: {
+              opacity: 0.8,
+              color: new graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: "rgba(162, 233, 253, 0.6)",
+                },
+                {
+                  offset: 1,
+                  color: "rgba(255, 255, 255, 0.1)",
                 },
               ]),
             },
@@ -125,6 +159,6 @@ export default {
 
 <style scoped>
 .chart {
-  min-height: 250px;
+  min-height: 290px;
 }
 </style>

@@ -52,23 +52,23 @@ export default {
           },
           indicator: [
             {
-              name: "pue评测",
+              name: "景点详情",
               max: 50,
             },
             {
-              name: "报警响应度",
+              name: "景点总览",
               max: 50,
             },
             {
-              name: "容量占比",
+              name: "景点总览",
               max: 50,
             },
             {
-              name: "用电报警",
+              name: "景点总览",
               max: 50,
             },
             {
-              name: "环境报警",
+              name: "游客分布",
               max: 50,
             },
           ],

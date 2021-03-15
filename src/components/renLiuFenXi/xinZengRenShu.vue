@@ -76,15 +76,15 @@ export default {
       option: {
         tooltip: {},
         grid: {
-          x: 0,
+          x: 30,
           y: 30,
-          x2: 0,
+          x2: 10,
           y2: 20,
         },
         xAxis: [
           {
             type: "category",
-            data: ["鲁迅纪念馆", "思仁堂", "乌蓬船", "三味书屋", "沈园", "鲁迅故居"],
+            data: ["09-12", "09-13", "09-14", "09-15", "09-16", "09-17"],
             axisTick: {
               show: false,
             },
@@ -124,8 +124,13 @@ export default {
         yAxis: [
           {
             type: "value",
+            // data: ["00", "02", "04"],
             axisLabel: {
-              show: false,
+              show: true,
+              textStyle: {
+                color: "#a3fffe", //更改坐标轴文字颜色
+                fontSize: 12, //更改坐标轴文字大小
+              },
             },
             splitLine: {
               lineStyle: {
@@ -198,29 +203,6 @@ export default {
             },
             data: [20, 60, 50, 75, 23, 52],
           },
-          {
-            type: "bar",
-            label: {
-              normal: {
-                show: true,
-                position: "top",
-                fontSize: 16,
-                color: "#abf7fa",
-                offset: [4, -5],
-                borderColor: "#abf7fa",
-                borderWidth: "1",
-                borderRadius: [20, 20, 20, 20],
-                padding: [5, 5, 5, 5],
-                width: 20,
-                height: 20,
-                lineHeight: 20,
-              },
-            },
-            itemStyle: {
-              color: "transparent",
-            },
-            data: [20, 60, 50, 75, 23, 52],
-          },
         ],
       },
     };
@@ -230,6 +212,6 @@ export default {
 
 <style scoped>
 .chart {
-  height: 290px;
+  height: 230px;
 }
 </style>

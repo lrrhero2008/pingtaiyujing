@@ -1,17 +1,11 @@
 <template>
-<v-chart class="chart" :option="option" @legendselectchanged="legendChange"/>
+  <v-chart class="chart" :option="option" @legendselectchanged="legendChange" />
 </template>
 
 <script>
-import {
-  use
-} from "echarts/core";
-import {
-  CanvasRenderer
-} from "echarts/renderers";
-import {
-  BarChart
-} from "echarts/charts";
+import { use } from "echarts/core";
+import { CanvasRenderer } from "echarts/renderers";
+import { BarChart } from "echarts/charts";
 
 import {
   TitleComponent,
@@ -33,12 +27,12 @@ export default {
     return {
       option: {
         tooltip: {},
-        
+
         grid: {
           x: 30,
           y: 50,
           x2: 0,
-          y2: 40
+          y2: 40,
         },
         xAxis: {
           data: ["广州", "广州", "广州", "广州", "广州"],
@@ -49,68 +43,69 @@ export default {
             },
           },
           axisTick: {
-            show: false
+            show: false,
           },
           axisLabel: {
-            color: "#a3fffe"
+            color: "#a3fffe",
           },
-
         },
         yAxis: {
-          type: 'value',
+          type: "value",
           interval: 20,
           axisTick: false,
           splitLine: {
             lineStyle: {
-              color: "#103e4f"
+              color: "#103e4f",
             },
           },
           axisLabel: {
-            color: "#a3fffe"
+            color: "#a3fffe",
           },
         },
-        series: [{
-          name:'人流来源地情况',
-          data: [15, 40, 20, 52, 27],
-          type: "bar",
-          showBackground: true,
-          backgroundStyle: {
-            color: "rgba(132, 178, 197, 0.3)",
-            borderRadius: [15, 15, 15, 15],
-          },
-          itemStyle: {
-            color: {
-              type: "linear",
-              x: 0,
-              y: 0,
-              x2: 0,
-              y2: 1,
-              colorStops: [{
-                  offset: 0,
-                  color: "rgb(0, 255, 255)",
-                },
-                {
-                  offset: 1,
-                  color: "rgb(0, 175, 248)",
-                },
-              ],
-              globalCoord: false,
+        series: [
+          {
+            name: "人流来源地情况",
+            data: [15, 40, 20, 52, 27],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(132, 178, 197, 0.3)",
+              borderRadius: [15, 15, 15, 15],
             },
-            borderRadius: [15, 15, 15, 15],
+            itemStyle: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "rgb(0, 255, 255)",
+                  },
+                  {
+                    offset: 1,
+                    color: "rgb(0, 175, 248)",
+                  },
+                ],
+                globalCoord: false,
+              },
+              borderRadius: [15, 15, 15, 15],
+            },
+            barMaxWidth: 17,
+            // barCategoryGap: "20",
           },
-          barMaxWidth: 17,
-          // barCategoryGap: "20",
-        },],
+        ],
       },
     };
   },
   methods: {
-    legendChange(){
-      console.log('obj:')  
-    }
+    legendChange() {
+      console.log("obj:");
+    },
   },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

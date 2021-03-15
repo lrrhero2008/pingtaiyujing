@@ -1,39 +1,51 @@
 <template>
-<div class="home">
-  <div class="flex">
-    <div class="item">
-      <cloumn-item class="item-box box01" :title="`景点展示：`">
-        <zhan-shi></zhan-shi>  
-      </cloumn-item>
-      <cloumn-item class="item-box box02" :title="`景点概况：`">
-        <gai-kuang></gai-kuang>     
-      </cloumn-item>
-      <cloumn-item class="item-box box03" :title="`热门景点游客人数：`">
-        <YouKeRenShu></YouKeRenShu>
-        
-      </cloumn-item>
-    </div>
-    <div class="item">
-
+  <div class="home">
+    <div class="flex">
+      <div class="item">
+        <cloumn-item class="item-box box01" :title="`景点展示：`">
+          <zhan-shi></zhan-shi>
+        </cloumn-item>
+        <cloumn-item class="item-box box02" :title="`景点概况：`">
+          <gai-kuang></gai-kuang>
+        </cloumn-item>
+        <cloumn-item class="item-box box03" :title="`热门景点游客人数：`">
+          <YouKeRenShu></YouKeRenShu>
+        </cloumn-item>
+      </div>
+      <div class="item">
+        <cloumn-item class="item-box box04" :title="`景区游客各时间段人数情况：`">
+          <RenShuShiDuan />
+        </cloumn-item>
+        <cloumn-item class="item-box box05" :title="`游客各景点停留时长：`">
+          <TingLiuShiChang />
+        </cloumn-item>
+        <cloumn-item class="item-box box06" :title="`景点游客评价情况：`">
+          <PingJia />
+        </cloumn-item>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
 import cloumnItem from "@/components/home/cloumnItem";
-import ZhanShi from '@/components/jingDianGuanLi/zhanShi.vue';
-import GaiKuang from '@/components/jingDianGuanLi/gaiKuang.vue';
-import YouKeRenShu from '@/components/jingDianGuanLi/youKeRenShu.vue';
+import ZhanShi from "@/components/jingDianGuanLi/zhanShi.vue";
+import GaiKuang from "@/components/jingDianGuanLi/gaiKuang.vue";
+import YouKeRenShu from "@/components/jingDianGuanLi/youKeRenShu.vue";
+import RenShuShiDuan from "@/components/jingDianGuanLi/renShuShiDuan.vue";
+import PingJia from "@/components/jingDianGuanLi/pingJia.vue";
+import TingLiuShiChang from "@/components/jingDianGuanLi/tingLiuShiChang.vue";
 
 export default {
-  name: "Home",
+  // name: "Home",
   components: {
     cloumnItem,
     ZhanShi,
     GaiKuang,
     YouKeRenShu,
-
+    RenShuShiDuan,
+    PingJia,
+    TingLiuShiChang,
   },
   data() {
     return {};
@@ -54,14 +66,20 @@ export default {
 
 .flex {
   align-items: start;
+  justify-content: space-between;
 }
 
-.item {
-  width: 475px;
+.item-box {
+  margin-bottom: 28px;
+  width: 450px;
 }
 
-.item-box {margin-bottom:28px}
+.item-box.box04 {
+  width: 480px;
+}
+
+.item-box.box05 {
+  width: 480px;
+}
 /* .item-box.box01{height:287px} */
-
-
 </style>
