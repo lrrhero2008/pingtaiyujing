@@ -1,5 +1,5 @@
 <template>
-<v-chart class="chart" :option="option" @legendselectchanged="legendChange"/>
+<v-chart class="chart" :option="option" @legendselectchanged="legendChange" />
 </template>
 
 <script>
@@ -19,6 +19,8 @@ import {
   LegendComponent,
   GridComponent,
 } from "echarts/components";
+import Mock from 'mockjs'
+
 use([
   CanvasRenderer,
   BarChart,
@@ -27,17 +29,24 @@ use([
   LegendComponent,
   GridComponent,
 ]);
+
+var dataSales = [55, 60, 40, 72, 57]
+var dataAge = [15, 40, 20, 52, 27]
+
 export default {
   components: {},
   data() {
     return {
+      timer: '',
+      dataSales: dataSales,
+      dataAge: dataAge,
       option: {
         tooltip: {},
         legend: {
           data: ['商铺营业额', '消费者年龄段'],
           selectedMode: 'single',
           position: 'left',
-          left:'0'
+          left: '0'
         },
         grid: {
           x: 30,
@@ -75,8 +84,8 @@ export default {
           },
         },
         series: [{
-          name:'消费者年龄段',
-          data: [15, 40, 20, 52, 27],
+          name: '消费者年龄段',
+          data: dataAge,
           type: "bar",
           showBackground: true,
           backgroundStyle: {
@@ -106,8 +115,8 @@ export default {
           barMaxWidth: 17,
           // barCategoryGap: "20",
         }, {
-          name:'商铺营业额',
-          data: [55, 60, 40, 72, 57],
+          name: '商铺营业额',
+          data: dataSales,
           type: "bar",
           showBackground: true,
           backgroundStyle: {
@@ -136,14 +145,27 @@ export default {
           },
           barMaxWidth: 17,
           // barCategoryGap: "20",
-        },],
+        }, ],
       },
     };
   },
   methods: {
-    legendChange(){
-      console.log('obj:')  
+    legendChange() {
+      console.log('obj:')
+    },
+    randomData() {
+      Mock.mock({
+        "array|5": [
+          "@natural(10, 100)"
+        ]
+      });
     }
+  },
+  mounted() {
+    this.timer = setInterval(this.randomData, 3000)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
 };
 </script>

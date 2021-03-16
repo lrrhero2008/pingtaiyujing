@@ -51,10 +51,11 @@ export default {
   background: #141930;
   text-align: center;
   position: relative;
+  z-index: 1;
 }
 
 .wrap {
-  background: url("assets/bg-imgage.jpg") repeat-x;
+  /* background: url("assets/bg-imgage.jpg") repeat-x; */
   width: 2496px;
   height: 1146px;
   padding: 30px;

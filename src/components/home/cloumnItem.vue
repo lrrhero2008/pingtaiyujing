@@ -20,7 +20,7 @@ export default {
 .cloumn-item {
   color: #3cd7ff;
   position: relative;
-  background: rgb(33, 134, 172, 0.05);
+  background: rgb(33, 134, 172, 0.3);
   padding:20px
 }
 

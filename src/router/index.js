@@ -21,7 +21,7 @@ const routes = [
   },
   {
     path: '/jingdianguanli',
-    name: '景区景点管理',
+    name: '街区景点管理',
     component: () => import(/* webpackChunkName: "about" */ '../views/jingdianguanli.vue')
   },
   {

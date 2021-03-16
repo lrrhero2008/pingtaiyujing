@@ -1,30 +1,33 @@
 <template>
-  <div class="home">
-    <div class="flex">
-      <div class="item">
-        <cloumn-item class="item-box box01" :title="`景点展示：`">
-          <zhan-shi></zhan-shi>
-        </cloumn-item>
-        <cloumn-item class="item-box box02" :title="`景点概况：`">
-          <gai-kuang></gai-kuang>
-        </cloumn-item>
-        <cloumn-item class="item-box box03" :title="`热门景点游客人数：`">
-          <YouKeRenShu></YouKeRenShu>
-        </cloumn-item>
-      </div>
-      <div class="item">
-        <cloumn-item class="item-box box04" :title="`景区游客各时间段人数情况：`">
-          <RenShuShiDuan />
-        </cloumn-item>
-        <cloumn-item class="item-box box05" :title="`游客各景点停留时长：`">
-          <TingLiuShiChang />
-        </cloumn-item>
-        <cloumn-item class="item-box box06" :title="`景点游客评价情况：`">
-          <PingJia />
-        </cloumn-item>
-      </div>
+<div class="home">
+  <div class="flex">
+    <div class="canvas" style="opacity: 0.1">
+      <iframe frameborder="0" src="static/index.html" style="width: 100%; height: 111%"></iframe>
+    </div>
+    <div class="item">
+      <cloumn-item class="item-box box01" :title="`景点展示：`">
+        <zhan-shi></zhan-shi>
+      </cloumn-item>
+      <cloumn-item class="item-box box02" :title="`景点概况：`">
+        <gai-kuang></gai-kuang>
+      </cloumn-item>
+      <cloumn-item class="item-box box03" :title="`热门景点游客人数：`">
+        <YouKeRenShu></YouKeRenShu>
+      </cloumn-item>
+    </div>
+    <div class="item">
+      <cloumn-item class="item-box box04" :title="`景区游客各时间段人数情况：`">
+        <RenShuShiDuan />
+      </cloumn-item>
+      <cloumn-item class="item-box box05" :title="`游客各景点停留时长：`">
+        <TingLiuShiChang />
+      </cloumn-item>
+      <cloumn-item class="item-box box06" :title="`景点游客评价情况：`">
+        <PingJia />
+      </cloumn-item>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -63,6 +66,13 @@ export default {
   width: 100%;
   height: 100%;
 } */
+.canvas {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 99%;
+}
 
 .flex {
   align-items: start;
@@ -81,5 +91,6 @@ export default {
 .item-box.box05 {
   width: 480px;
 }
+
 /* .item-box.box01{height:287px} */
 </style>

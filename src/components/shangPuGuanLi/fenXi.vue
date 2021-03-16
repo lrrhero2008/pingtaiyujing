@@ -200,6 +200,7 @@ export default {
 
 <style scoped>
 .chart {
-  min-height: 290px;
+  min-height: 290px;opacity: 0;
 }
+
 </style>
