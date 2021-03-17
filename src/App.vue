@@ -11,7 +11,7 @@
     </div>
     <div class="title">{{currentRouteName}}</div>
   </div>
-  <div class="wrap">
+  <div class="wrap" :class="(hasBackground?' hasBackground':'')">
     <router-view :key="$route.fullPath" />
   </div>
 </div>
@@ -24,6 +24,13 @@ export default {
   computed: {
     currentRouteName() {
       return this.$route.name;
+    },
+    hasBackground(){
+      if( this.$route.name=="平台预警" || this.$route.name=="商圈展示" || this.$route.name=="智慧设备管理" ){
+        return true
+      } else {
+        return false
+      }
     }
   },
   methods: {
@@ -61,7 +68,7 @@ export default {
   height: 1146px;
   padding: 30px;
 }
-
+.hasBackground{background: url("assets/bg-imgage.jpg") repeat-x}
 .nav .breadcurmb {
   margin-right: 10px;
 }
