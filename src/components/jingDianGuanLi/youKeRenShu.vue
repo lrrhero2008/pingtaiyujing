@@ -6,6 +6,7 @@
 import { use, graphic } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { CustomChart, BarChart } from "echarts/charts";
+import Mock from 'mockjs'
 
 import {
   TitleComponent,
@@ -67,6 +68,7 @@ var MyCubeShadow = graphic.extendShape({
     ctx.closePath();
   },
 });
+var data = [20, 60, 50, 75, 23, 52]
 graphic.registerShape("MyCubeRect", MyCubeRect);
 graphic.registerShape("MyCubeShadow", MyCubeShadow);
 export default {
@@ -74,6 +76,7 @@ export default {
   data() {
     return {
       option: {
+        timer:'',
         tooltip: {},
         grid: {
           x: 0,
@@ -196,7 +199,7 @@ export default {
                 ],
               };
             },
-            data: [20, 60, 50, 75, 23, 52],
+            data: data,
           },
           {
             type: "bar",
@@ -219,11 +222,28 @@ export default {
             itemStyle: {
               color: "transparent",
             },
-            data: [20, 60, 50, 75, 23, 52],
+            data: data,
           },
         ],
       },
     };
+  },
+  methods: {
+    randomData() {
+      this.dataSales = Mock.mock({
+        "array|6": [
+          "@natural(20, 90)"
+        ]
+      });
+      this.option.series[1].data = this.dataSales.array
+      this.option.series[0].data = this.dataSales.array
+    }
+  },
+  mounted() {
+    this.timer = setInterval(this.randomData, 5000)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
 };
 </script>

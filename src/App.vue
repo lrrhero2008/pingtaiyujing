@@ -44,6 +44,7 @@ export default {
   color: #2c3e50;
   width: 2496px;
   height: 1248px;
+  overflow: hidden;
 }
 
 .nav {

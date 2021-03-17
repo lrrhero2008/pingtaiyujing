@@ -6,6 +6,7 @@
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { BarChart } from "echarts/charts";
+import Mock from 'mockjs'
 
 import {
   TitleComponent,
@@ -21,13 +22,14 @@ use([
   LegendComponent,
   GridComponent,
 ]);
+var data = [15, 40, 20, 52, 27]
 export default {
   components: {},
   data() {
     return {
       option: {
         tooltip: {},
-
+        timer:0,
         grid: {
           x: 30,
           y: 50,
@@ -50,6 +52,7 @@ export default {
           },
         },
         yAxis: {
+          max:100,
           type: "value",
           interval: 20,
           axisTick: false,
@@ -65,7 +68,7 @@ export default {
         series: [
           {
             name: "人流来源地情况",
-            data: [15, 40, 20, 52, 27],
+            data: data,
             type: "bar",
             showBackground: true,
             backgroundStyle: {
@@ -102,8 +105,22 @@ export default {
   },
   methods: {
     legendChange() {
-      console.log("obj:");
+      console.log('obj:')
     },
+    randomData() {
+      this.dataSales = Mock.mock({
+        "array|5": [
+          "@natural(10, 100)"
+        ]
+      });
+      this.option.series[0].data = this.dataSales.array
+    }
+  },
+  mounted() {
+    this.timer = setInterval(this.randomData, 3000)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
 };
 </script>

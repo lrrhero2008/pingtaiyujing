@@ -6,6 +6,7 @@
 import { use, graphic } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { LineChart } from "echarts/charts";
+import Mock from 'mockjs'
 
 import {
   TitleComponent,
@@ -25,6 +26,7 @@ export default {
   components: {},
   data() {
     return {
+      timer:'',
       option: {
         color: ["#b59424", "#1a9f90"],
         tooltip: {
@@ -77,8 +79,9 @@ export default {
         ],
         yAxis: [
           {
+            max:800,
             type: "value",
-            interval: 200,
+            interval: 100,
             splitLine: {
               lineStyle: {
                 color: "#114556",
@@ -153,6 +156,23 @@ export default {
         ],
       },
     };
+  },
+  methods: {
+    randomData() {
+      this.dataSales = Mock.mock({
+        "array|6": [
+          "@natural(80, 400)"
+        ]
+      });
+      this.option.series[1].data = this.dataSales.array
+      // this.option.series[0].data = this.dataSales.array
+    }
+  },
+  mounted() {
+    this.timer = setInterval(this.randomData, 5000)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
 };
 </script>

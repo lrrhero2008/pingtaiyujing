@@ -1,5 +1,5 @@
 <template>
-<v-chart class="chart" :option="option" @legendselectchanged="legendChange" />
+<v-chart class="chart" :option="option"  @legendselectchanged="legendChange" />
 </template>
 
 <script>
@@ -72,6 +72,7 @@ export default {
         },
         yAxis: {
           type: 'value',
+          max:100,
           interval: 20,
           axisTick: false,
           splitLine: {
@@ -154,11 +155,13 @@ export default {
       console.log('obj:')
     },
     randomData() {
-      Mock.mock({
+      this.dataSales = Mock.mock({
         "array|5": [
           "@natural(10, 100)"
         ]
       });
+      this.option.series[1].data = this.dataSales.array
+      this.option.series[0].data = this.dataSales.array
     }
   },
   mounted() {
