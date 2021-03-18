@@ -1,11 +1,19 @@
 <template>
-  <v-chart class="chart" :option="option" />
+<v-chart class="chart" :option="option" />
 </template>
 
 <script>
-import { use, graphic } from "echarts/core";
-import { CanvasRenderer } from "echarts/renderers";
-import { CustomChart, BarChart } from "echarts/charts";
+import {
+  use,
+  graphic
+} from "echarts/core";
+import {
+  CanvasRenderer
+} from "echarts/renderers";
+import {
+  CustomChart,
+  BarChart
+} from "echarts/charts";
 
 import {
   TitleComponent,
@@ -71,141 +79,178 @@ graphic.registerShape("MyCubeRect", MyCubeRect);
 graphic.registerShape("MyCubeShadow", MyCubeShadow);
 export default {
   components: {},
+  props: ["data"],
   data() {
     return {
       option: {
         tooltip: {},
         grid: {
-          x: 30,
+          x: 40,
           y: 30,
           x2: 10,
           y2: 20,
         },
-        xAxis: [
-          {
-            type: "category",
-            data: ["09-12", "09-13", "09-14", "09-15", "09-16", "09-17"],
-            axisTick: {
-              show: false,
+        xAxis: [{
+          type: "category",
+          data: ["09-12", "09-13", "09-14", "09-15", "09-16", "09-17"],
+          axisTick: {
+            show: false,
+          },
+          axisLine: {
+            lineStyle: {
+              color: "#0a4052",
             },
-            axisLine: {
-              lineStyle: {
-                color: "#0a4052",
-              },
+          },
+          axisLabel: {
+            textStyle: {
+              fontSize: 12,
+              color: "#a3fffe",
             },
-            axisLabel: {
-              textStyle: {
-                fontSize: 12,
-                color: "#a3fffe",
-              },
-              interval: 0,
-              formatter: function (value) {
-                var str = "";
-                var num = 5; //每行显示字数
-                var valLength = value.length; //该项x轴字数
-                var rowNum = Math.ceil(valLength / num); // 行数
+            interval: 0,
+            formatter: function (value) {
+              var str = "";
+              var num = 5; //每行显示字数
+              var valLength = value.length; //该项x轴字数
+              var rowNum = Math.ceil(valLength / num); // 行数
 
-                if (rowNum > 1) {
-                  for (var i = 0; i < rowNum; i++) {
-                    var temp = "";
-                    var start = i * num;
-                    var end = start + num;
-                    temp = value.substring(start, end) + "\n";
-                    str += temp;
-                  }
-                  return str;
-                } else {
-                  return value;
+              if (rowNum > 1) {
+                for (var i = 0; i < rowNum; i++) {
+                  var temp = "";
+                  var start = i * num;
+                  var end = start + num;
+                  temp = value.substring(start, end) + "\n";
+                  str += temp;
                 }
-              },
+                return str;
+              } else {
+                return value;
+              }
             },
           },
-        ],
-        yAxis: [
-          {
-            type: "value",
-            // data: ["00", "02", "04"],
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#a3fffe", //更改坐标轴文字颜色
-                fontSize: 12, //更改坐标轴文字大小
-              },
-            },
-            splitLine: {
-              lineStyle: {
-                color: "#0a4052",
-              },
+        }, ],
+        yAxis: [{
+          type: "value",
+          // data: ["00", "02", "04"],
+          interval: '500',
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: "#a3fffe", //更改坐标轴文字颜色
+              fontSize: 12, //更改坐标轴文字大小
             },
           },
-        ],
-        series: [
-          {
-            type: "custom",
-            renderItem: function (params, api) {
-              let location = api.coord([api.value(0), api.value(1)]);
-              return {
-                type: "group",
-                label: {
-                  normal: {
-                    show: true,
-                    color: "#fff",
-                    position: "top",
+          splitLine: {
+            lineStyle: {
+              color: "#0a4052",
+            },
+          },
+        }, ],
+        series: [{
+          type: "custom",
+          renderItem: function (params, api) {
+            let location = api.coord([api.value(0), api.value(1)]);
+            return {
+              type: "group",
+              label: {
+                normal: {
+                  show: true,
+                  color: "#fff",
+                  position: "top",
+                },
+              },
+              children: [{
+                  type: "MyCubeRect",
+                  shape: {
+                    api,
+                    xValue: api.value(0),
+                    yValue: api.value(1),
+                    x: location[0],
+                    y: location[1],
+                  },
+                  style: {
+                    fill: new graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: "#4aeff9",
+                      },
+                      {
+                        offset: 1,
+                        color: "#0093c3",
+                      },
+                    ]),
                   },
                 },
-                children: [
-                  {
-                    type: "MyCubeRect",
-                    shape: {
-                      api,
-                      xValue: api.value(0),
-                      yValue: api.value(1),
-                      x: location[0],
-                      y: location[1],
-                    },
-                    style: {
-                      fill: new graphic.LinearGradient(0, 0, 0, 1, [
-                        {
-                          offset: 0,
-                          color: "#4aeff9",
-                        },
-                        {
-                          offset: 1,
-                          color: "#0093c3",
-                        },
-                      ]),
-                    },
+                {
+                  type: "MyCubeShadow",
+                  shape: {
+                    api,
+                    xValue: api.value(0),
+                    yValue: api.value(1),
+                    x: location[0],
+                    y: location[1],
                   },
-                  {
-                    type: "MyCubeShadow",
-                    shape: {
-                      api,
-                      xValue: api.value(0),
-                      yValue: api.value(1),
-                      x: location[0],
-                      y: location[1],
-                    },
-                    style: {
-                      fill: new graphic.LinearGradient(0, 0, 0, 1, [
-                        {
-                          offset: 0,
-                          color: "#00cdd8",
-                        },
-                        {
-                          offset: 1,
-                          color: "#006e91",
-                        },
-                      ]),
-                    },
+                  style: {
+                    fill: new graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: "#00cdd8",
+                      },
+                      {
+                        offset: 1,
+                        color: "#006e91",
+                      },
+                    ]),
                   },
-                ],
-              };
-            },
-            data: [20, 60, 50, 75, 23, 52],
+                },
+              ],
+            };
           },
-        ],
+          data: [20, 60, 50, 75, 23, 52],
+        }, ],
       },
     };
+  },
+  methods: {
+    updateArr(arr) {
+      var result = arr.map((o) => {
+        return {
+          name: o.name,
+          value: o.num
+        };
+      });
+      return result;
+    },
+  },
+  computed: {
+    newData() {
+      var result;
+      if (this.data) {
+        result = this.updateArr(this.data);
+      }
+      return result;
+    },
+  },
+  watch: {
+    data() {
+      var result = this.updateArr(this.data);
+      this.option.series[0].data = result;
+      this.option.xAxis[0].data = this.data.map((o) => {
+        return {
+          value: o.name
+        };
+      });
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      if (this.data) {
+        this.option.series[0].data = this.newData;
+        this.option.xAxis[0].data = this.data.map((o) => {
+          return {
+            value: o.name
+          };
+        });
+      }
+
+    });
   },
 };
 </script>

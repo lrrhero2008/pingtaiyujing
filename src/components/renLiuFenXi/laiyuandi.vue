@@ -1,12 +1,11 @@
 <template>
-  <v-chart class="chart" :option="option" @legendselectchanged="legendChange" />
+  <v-chart class="chart" :option="option"  />
 </template>
 
 <script>
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { BarChart } from "echarts/charts";
-import Mock from 'mockjs'
 
 import {
   TitleComponent,
@@ -25,6 +24,7 @@ use([
 var data = [15, 40, 20, 52, 27]
 export default {
   components: {},
+  props: ["data"],
   data() {
     return {
       option: {
@@ -37,7 +37,8 @@ export default {
           y2: 40,
         },
         xAxis: {
-          data: ["广州", "广州", "广州", "广州", "广州"],
+          type:'category',
+          // data: ["绍兴", "绍兴", "绍兴", "绍兴", "绍兴"],
           axisLine: {
             lineStyle: {
               color: "#103e4f",
@@ -104,23 +105,39 @@ export default {
     };
   },
   methods: {
-    legendChange() {
-      console.log('obj:')
-    },
-    randomData() {
-      this.dataSales = Mock.mock({
-        "array|5": [
-          "@natural(10, 100)"
-        ]
+    updateArr(arr) {
+      var result = arr.map((o) => {
+        return { name: o.name, value: o.num };
       });
-      this.option.series[0].data = this.dataSales.array
-    }
+      return result;
+    },
+  },
+  computed: {
+    newData() {
+      var result;
+      if (this.data) {
+        result = this.updateArr(this.data);
+      }
+      return result;
+    },
+  },
+  watch: {
+    data() {
+      var result = this.updateArr(this.data);
+      this.option.series[0].data = result;
+      this.option.xAxis.data =  this.data.map((o) => {
+        return { value: o.name };
+      });
+    },
   },
   mounted() {
-    this.timer = setInterval(this.randomData, 3000)
-  },
-  beforeDestroy() {
-    clearInterval(this.timer)
+    this.$nextTick(() => {
+      this.option.series[0].data = this.newData;
+      this.option.xAxis.data =  this.data.map((o) => {
+        return { value: o.name };
+      });
+    
+    });
   },
 };
 </script>

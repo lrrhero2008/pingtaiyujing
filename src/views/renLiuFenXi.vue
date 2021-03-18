@@ -17,15 +17,15 @@
         </cloumn-item>
 
         <cloumn-item class="item-box box03" :title="`街区近日新增人数概况：`">
-          <XinZengRenShu />
+          <XinZengRenShu :data="data.recentIncreaseData"/>
         </cloumn-item>
         <cloumn-item class="item-box box04" :title="`街区游客各时间段人数情况：`">
-          <JingQuRenShu />
+          <JingQuRenShu :data="data.periodTimeData"/>
         </cloumn-item>
       </div>
       <div class="item">
         <cloumn-item class="item-box box05" :title="`人流来源地情况: `">
-          <laiyuandi />
+          <Laiyuandi :data="data.orginCityData" />
         </cloumn-item>
         <cloumn-item class="item-box box06" :title="`各年龄段人数占比分析: `">
           <NianLingFenXi :data="data.ageStructureData" />

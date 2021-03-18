@@ -23,6 +23,7 @@ use([
 ]);
 export default {
   components: {},
+  props: ["data"],
   data() {
     return {
       option: {
@@ -40,7 +41,7 @@ export default {
         grid: {
           top: "10%",
           left: "3%",
-          right: "4%",
+          right: "2%",
           bottom: "3%",
           containLabel: true,
         },
@@ -49,13 +50,18 @@ export default {
             type: "category",
             boundaryGap: false,
             data: [
-              "0～2时",
-              "3～4时",
-              "6～8时",
-              "10～12时",
-              "14～16时",
-              "18～20时",
-              "22～24时",
+              "02:00",
+              "04:00",
+              "06:00",
+              "08:00",
+              "10:00",
+              "12:00",
+              "14:00",
+              "16:00",
+              "18:00",
+              "20:00",
+              "22:00",
+              "24:00",
             ],
             axisTick: {
               show: false,
@@ -119,6 +125,41 @@ export default {
         ],
       },
     };
+  },
+  methods: {
+    updateArr(arr) {
+      var result = arr.map((o) => {
+        return { name: o.name, value: o.num };
+      });
+      return result;
+    },
+  },
+  computed: {
+    newData() {
+      var result;
+      if (this.data) {
+        result = this.updateArr(this.data);
+      }
+      return result;
+    },
+  },
+  watch: {
+    data() {
+      var result = this.updateArr(this.data);
+      this.option.series[0].data = result;
+      this.option.xAxis.data =  this.data.map((o) => {
+        return { value: o.name };
+      });
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.option.series[0].data = this.newData;
+      this.option.xAxis.data =  this.data.map((o) => {
+        return { value: o.name };
+      });
+    
+    });
   },
 };
 </script>

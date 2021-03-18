@@ -83,7 +83,7 @@ var seriesOption = [
   {
     name: "",
     type: "pie",
-    clockWise: false,
+    clockwise: false,
     radius: [80, 80],
     hoverAnimation: false,
     itemStyle: {
