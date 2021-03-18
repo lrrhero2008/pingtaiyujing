@@ -12,14 +12,14 @@
         <cloumn-item class="item-box box01" :title="`游客旅游种类人数：`">
           <LvKeZongLei />
         </cloumn-item>
-        <cloumn-item class="item-box box02" :title="`景区男女数量比例: `">
-          <ShuLiangBiLi />
+        <cloumn-item class="item-box box02" :title="`街区男女数量比例: `">
+          <ShuLiangBiLi :data="data.genderStructureData" />
         </cloumn-item>
 
-        <cloumn-item class="item-box box03" :title="`景区近日新增人数概况：`">
+        <cloumn-item class="item-box box03" :title="`街区近日新增人数概况：`">
           <XinZengRenShu />
         </cloumn-item>
-        <cloumn-item class="item-box box04" :title="`景区游客各时间段人数情况：`">
+        <cloumn-item class="item-box box04" :title="`街区游客各时间段人数情况：`">
           <JingQuRenShu />
         </cloumn-item>
       </div>
@@ -28,7 +28,7 @@
           <laiyuandi />
         </cloumn-item>
         <cloumn-item class="item-box box06" :title="`各年龄段人数占比分析: `">
-          <NianLingFenXi />
+          <NianLingFenXi :data="data.ageStructureData" />
         </cloumn-item>
         <cloumn-item class="item-box box07" :title="`人流热力图: `">
           <RenLiuReLiTu />
@@ -47,9 +47,16 @@ import NianLingFenXi from "@/components/renLiuFenXi/nianLingFenXi.vue";
 import RenLiuReLiTu from "@/components/renLiuFenXi/renLiuReLiTu.vue";
 import XinZengRenShu from "@/components/renLiuFenXi/xinZengRenShu.vue";
 import ShuLiangBiLi from "@/components/renLiuFenXi/shuLiangBiLi.vue";
+import { getHeatingPower } from "@/api/api.js";
 
 export default {
   // name: "Home",
+  data() {
+    return {
+      data: {},
+      timer: 0,
+    };
+  },
   components: {
     cloumnItem,
     LvKeZongLei,
@@ -59,6 +66,19 @@ export default {
     RenLiuReLiTu,
     XinZengRenShu,
     ShuLiangBiLi,
+  },
+  methods: {
+    getData() {
+      getHeatingPower().then((res) => {
+        return (this.data = res.data.result);
+      });
+    },
+  },
+  mounted() {
+    this.timer = setInterval(this.getData, 10000);
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
   },
 };
 </script>

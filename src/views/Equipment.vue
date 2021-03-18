@@ -2,7 +2,7 @@
 <div class="home">
   <div class="flex">
     <div class="item-3">
-      <cloumn-item class="small-item" :title="`景区供电情况分析：`">
+      <cloumn-item class="small-item" :title="`街区供电情况分析：`">
         <powered slot></powered>
       </cloumn-item>
       <cloumn-item class="small-item" :title="`设备开关状态：`">

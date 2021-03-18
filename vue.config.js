@@ -3,3 +3,14 @@
 //     ? '/pingtaiyujing/'
 //     : '/'
 // }
+module.exports = {
+  devServer: {
+    proxy: {
+      '/papi': {
+        target: 'https://bdkjv.g2ma.com',
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  }
+}

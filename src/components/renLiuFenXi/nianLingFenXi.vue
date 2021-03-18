@@ -21,7 +21,7 @@ use([
   GridComponent,
 ]);
 export default {
-  components: {},
+  props: ["data"],
   data() {
     return {
       option: {
@@ -41,45 +41,49 @@ export default {
         tooltip: {
           trigger: "item",
         },
-        series: [
-          {
-            name: "各年龄段人数占比分析：",
-            type: "pie",
-            radius: [40, 120],
-            center: ["30%", "50%"],
-            roseType: "area",
-
-            data: [{
-              value: 70,
-              name: "0 ~ 19岁"
-            },
-            {
-              value: 58,
-              name: "20 ~ 29岁"
-            },
-            {
-              value: 12,
-              name: "30 ~ 39岁"
-            },
-            {
-              value: 40,
-              name: "40 ~ 49岁"
-            },
-            {
-              value: 28,
-              name: "50 ~ 59岁"
-            },
-          ],
-            label: {
-              show: false,
-            },
-            left: "0%",
+        series: {
+          name: "各年龄段人数占比分析：",
+          type: "pie",
+          radius: [40, 120],
+          center: ["30%", "50%"],
+          roseType: "area",
+          data: this.newData,
+          label: {
+            show: false,
           },
-        ],
+          left: "0%",
+        },
       },
     };
   },
+  methods: {
+    updateArr(arr) {
+      var result = arr.map((o) => {
+        return { name: o.name, value: o.num };
+      });
+      return result;
+    },
+  },
+  computed: {
+    newData() {
+      var result;
+      if (this.data) {
+        result = this.updateArr(this.data);
+      }
+      return result;
+    },
+  },
+  watch: {
+    data() {
+      var result = this.updateArr(this.data);
+      this.option.series.data = result;
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.option.series.data = this.newData;
+    });
+  },
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>

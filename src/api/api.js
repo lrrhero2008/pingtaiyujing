@@ -29,8 +29,8 @@ function getStores(data) {
 //商品销售排行
 function getRank(data) {
   return request({
-    url: "https://bdkjv.g2ma.com/papi/oms/sales-statistics/turnoverStatistics",
-    method: 'post',
+    url: "/api/papi/oms/sales-statistics/turnoverStatistics",
+    method: 'get',
     data
   });
 }
@@ -38,8 +38,13 @@ function getRank(data) {
 // 区域人流量统计综合：
 function getHeatingPower(data) {
   return request({
-    url: "https://bdkjv.g2ma.com/papi/stats/statsHeatingPower?regionId=57SX57LM&pcode=f4490005750003&pkey=3f8f4483f41c4470bbc3b10f65576265",
-    method: 'post',
+    url: "/papi/stats/statsHeatingPower",
+    params:{
+      regionId: "57SX57LM",
+      pcode: "f4490005750003",
+      pkey:"3f8f4483f41c4470bbc3b10f65576265",
+    },
+    method: 'get',
     data
   });
 }

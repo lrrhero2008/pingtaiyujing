@@ -2,7 +2,7 @@
   <div class="home">
     <div class="flex cloumn-top">
       <div class="item-2">
-        <cloumn-item class="small-item" :title="`景区景点介绍：`">
+        <cloumn-item class="small-item" :title="`街区景点介绍：`">
           <introduce slot></introduce>
         </cloumn-item>
         <cloumn-item class="small-item" :title="`商业网点介绍：`">
@@ -28,7 +28,7 @@
       <cloumn-item class="big-item" :title="`商业和文化活动介绍：`">
         <business-culture slot></business-culture>
       </cloumn-item>
-      <cloumn-item class="small-item" :title="`景区播报：`">
+      <cloumn-item class="small-item" :title="`街区播报：`">
         <broadcast slot></broadcast>
       </cloumn-item>
     </div>

@@ -20,7 +20,7 @@
         </cloumn-item>
       </div>
       <div class="item">
-        <cloumn-item class="item-box box04" :title="`景区游客各时间段人数情况：`">
+        <cloumn-item class="item-box box04" :title="`街区游客各时间段人数情况：`">
           <RenShuShiDuan />
         </cloumn-item>
         <cloumn-item class="item-box box05" :title="`游客各景点停留时长：`">

@@ -56,7 +56,7 @@ export default {
         }],
         yAxis: [{
           type: "value",
-          name: "景区供电量（单位：KW/h)",
+          name: "街区供电量（单位：KW/h)",
           nameTextStyle: {
             align: "center",
             padding: [0, 0, 0, 110],
