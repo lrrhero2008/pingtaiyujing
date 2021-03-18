@@ -4,7 +4,7 @@
       <iframe
         frameborder="0"
         src="static/index.html"
-        style="width: 100%; height: 111%"
+        style="width: 100%; height: 100%"
       ></iframe>
     </div>
     <div class="flex">
@@ -40,16 +40,16 @@
 
 <script>
 import cloumnItem from "@/components/home/cloumnItem";
-import LvKeZongLei from "../components/renLiuFenXi/lvKeZongLei.vue";
-import JingQuRenShu from "../components/renLiuFenXi/jingQuRenShu.vue";
-import Laiyuandi from "../components/renLiuFenXi/laiyuandi.vue";
-import NianLingFenXi from "../components/renLiuFenXi/nianLingFenXi.vue";
-import RenLiuReLiTu from "../components/renLiuFenXi/renLiuReLiTu.vue";
-import XinZengRenShu from "../components/renLiuFenXi/xinZengRenShu.vue";
-import ShuLiangBiLi from "../components/renLiuFenXi/shuLiangBiLi.vue";
+import LvKeZongLei from "@/components/renLiuFenXi/lvKeZongLei.vue";
+import JingQuRenShu from "@/components/renLiuFenXi/jingQuRenShu.vue";
+import Laiyuandi from "@/components/renLiuFenXi/laiyuandi.vue";
+import NianLingFenXi from "@/components/renLiuFenXi/nianLingFenXi.vue";
+import RenLiuReLiTu from "@/components/renLiuFenXi/renLiuReLiTu.vue";
+import XinZengRenShu from "@/components/renLiuFenXi/xinZengRenShu.vue";
+import ShuLiangBiLi from "@/components/renLiuFenXi/shuLiangBiLi.vue";
 
 export default {
-  name: "Home",
+  // name: "Home",
   components: {
     cloumnItem,
     LvKeZongLei,

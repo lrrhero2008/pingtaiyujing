@@ -1,5 +1,5 @@
 <template>
-  <v-chart class="chart" :option="option" />
+  <v-chart class="chart" :option="option" @legendselectchanged="legendChange" />
 </template>
 
 <script>
@@ -21,38 +21,39 @@ use([
   LegendComponent,
   GridComponent,
 ]);
+var value = [0.4, 0.5, 0.6];
 
-var category = [
-  {
-    name: "男性消费者：",
-    value: 612.5,
-  },
-  {
-    name: "销售总额",
-    value: 548.7,
-  },
-  {
-    name: "女性消费者：",
-    value: 300.2,
-  },
-]; // 类别
-var total = 1000; // 数据总数
-var datas = [];
-category.forEach((value) => {
-  datas.push(value.value);
-});
 export default {
   components: {},
   data() {
     return {
       option: {
+        grid: {
+          top: "5%",
+          left: "1%",
+          right: "1%",
+          bottom: "5%",
+          containLabel: true,
+        },
+        tooltip: {
+          show: false,
+        },
         xAxis: {
-          max: total,
-          splitLine: {
-            show: false,
-          },
+          type: "value",
+          min: 0,
+          max: 1,
           axisLine: {
             show: false,
+            lineStyle: {
+              color: "#ffffff",
+              width: 1,
+            },
+          },
+          splitLine: {
+            show: false,
+            lineStyle: {
+              color: "rgba(96,118,173,0.3)",
+            },
           },
           axisLabel: {
             show: false,
@@ -61,146 +62,122 @@ export default {
             show: false,
           },
         },
-        grid: {
-          left: 250,
-          top: 100, // 设置条形图的边距
-          right: 250,
-          bottom: 100,
-        },
-        yAxis: [
-          {
-            type: "category",
-            inverse: false,
-            data: category,
-            axisLine: {
-              show: false,
-            },
-            axisTick: {
-              show: false,
-            },
-            axisLabel: {
-              show: false,
+        yAxis: {
+          //show: false,
+          type: "category",
+          splitLine: {
+            show: false,
+          },
+          axisLine: {
+            show: false,
+          },
+          axisLabel: {
+            show: true,
+            interval: 0,
+            padding: [0, 0, 0, 0],
+            align: "left",
+            margin: 0,
+            textStyle: {
+              color: "#ffffff",
+              fontSize: 16,
             },
           },
-        ],
+          axisTick: {
+            show: false,
+          },
+          data: ["5次", "8次", "12次"],
+        },
         series: [
           {
-            // 内
-            type: "bar",
-            barWidth: 28,
-            silent: true,
+            //真实数值条形图
+            name: "真实值",
+            type: "bar", //pictorialBar
+            barWidth: "20%",
             itemStyle: {
               normal: {
-                color: "#1588D1",
+                borderWidth: 0,
+                color: {
+                  x: 0,
+                  y: 0,
+                  x2: 1,
+                  y2: 0,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#2A2C4B",
+                    },
+                    {
+                      offset: 1,
+                      color: "#E33747",
+                    },
+                  ],
+                },
               },
+              barBorderRadius: 10,
             },
             label: {
-              normal: {
-                formatter: "{b}",
-                textStyle: {
-                  color: "#fff",
-                  fontSize: 14,
-                },
-                position: "left",
-                distance: 20, // 向右偏移位置
-                show: true,
-              },
+              show: false,
             },
-            data: category,
-            z: 1,
-            animationEasing: "elasticOut",
+            data: value,
+            z: 0,
           },
-
           {
-            // 分隔
+            //辅助方格图形
+            name: "辅助值",
             type: "pictorialBar",
-            itemStyle: {
-              normal: {
-                color: "#07314a",
-              },
-            },
-            symbolRepeat: "fixed",
-            symbolMargin: 2,
+            barWidth: "22%",
             symbol: "rect",
-            symbolClip: true,
-            symbolSize: [3, 28],
-            symbolPosition: "start",
-            symbolOffset: [3, -4],
-            symbolBoundingData: this.total,
-            data: [total, total, total, total],
-            z: 2,
-            animationEasing: "elasticOut",
-          },
-          {
-            // label
-            type: "pictorialBar",
-            symbolBoundingData: total,
+            symbolRepeat: "true",
+            symbolMargin: "80%",
+            symbolSize: ["20%", "100%"],
+            symbolOffset: ["150%", "0%"],
             itemStyle: {
               normal: {
-                color: "none",
+                color: "#051F54",
               },
+              barBorderRadius: 10,
             },
             label: {
               normal: {
-                formatter: (params) => {
-                  var text;
-                  text = "{f| " + ((params.data * 100) / total).toFixed(2) + "%}";
-                  return text;
+                color: "#fff",
+                show: false,
+                position: ["100%", "10%"],
+                fontSize: 16,
+                formatter: function (params) {
+                  //console.info(params);
+                  return " " + (value[params.dataIndex] * 100).toFixed(2) + "%";
                 },
-                rich: {
-                  f: {
-                    color: "#ffffff",
-                  },
-                },
-                position: "right",
-                distance: 10, // 向右偏移位置
-                show: true,
               },
             },
-            data: datas,
-            z: 0,
-          },
-
-          {
-            name: "外框",
-            type: "bar",
-            barGap: "-130%", // 设置外框粗细
-            data: [total, total, total, total],
-            barWidth: 45,
-            itemStyle: {
-              normal: {
-                barBorderRadius: [5, 5, 5, 5],
-                color: "transparent", // 填充色
-                barBorderColor: "#1588D1", // 边框色
-                barBorderWidth: 3, // 边框宽度
-              },
-            },
-            z: 0,
+            data: [1, 1, 1],
+            z: 1,
           },
           {
-            type: "scatter",
-            name: "条形",
-            symbol: "roundRect",
-            symbolSize: [7, 20],
-            symbolOffset: [3, -5],
-            symbolKeepAspect: true,
+            //辅助背景图形
+            name: "背景条",
+            type: "bar", //pictorialBar
+            barWidth: "20%",
+            barGap: "-100%",
             itemStyle: {
               normal: {
-                color: "#1588D1",
+                borderWidth: 0,
+                color: "rgba(151,89,255,0.2)",
               },
+              barBorderRadius: 10,
             },
-            data: [total, total, total, total],
+            data: [1, 1, 1],
+            z: 0,
           },
         ],
       },
     };
   },
+  methods: {
+    legendChange() {
+      console.log("obj:");
+    },
+  },
 };
 </script>
 
-<style scoped>
-.chart {
-  min-height: 290px;opacity: 0;
-}
-
-</style>
+<style scoped></style>
