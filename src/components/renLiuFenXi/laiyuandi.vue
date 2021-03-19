@@ -132,10 +132,12 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.option.series[0].data = this.newData;
-      this.option.xAxis.data =  this.data.map((o) => {
-        return { value: o.name };
-      });
+      if(this.data){
+        this.option.series[0].data = this.newData;
+        this.option.xAxis.data =  this.data.map((o) => {
+          return { value: o.name };
+        });
+      }
     
     });
   },

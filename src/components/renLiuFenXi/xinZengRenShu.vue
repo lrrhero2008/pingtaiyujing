@@ -92,7 +92,7 @@ export default {
         },
         xAxis: [{
           type: "category",
-          data: ["09-12", "09-13", "09-14", "09-15", "09-16", "09-17"],
+          data: [],
           axisTick: {
             show: false,
           },
@@ -106,7 +106,7 @@ export default {
               fontSize: 12,
               color: "#a3fffe",
             },
-            interval: 0,
+            
             formatter: function (value) {
               var str = "";
               var num = 5; //每行显示字数
@@ -131,7 +131,8 @@ export default {
         yAxis: [{
           type: "value",
           // data: ["00", "02", "04"],
-          interval: '500',
+          // interval: '500',
+          nameGap: '20',
           axisLabel: {
             show: true,
             textStyle: {
@@ -203,7 +204,7 @@ export default {
               ],
             };
           },
-          data: [20, 60, 50, 75, 23, 52],
+          data: [500, 500, 500, 500, 500, 500],
         }, ],
       },
     };

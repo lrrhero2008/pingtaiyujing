@@ -799,6 +799,7 @@ var data = [{
     value: 279
   }
 ];
+// https://github.com/apache/echarts/issues/9157
 var geoCoordMap = {
   '海门': [121.15, 31.89],
   '鄂尔多斯': [109.781327, 39.608266],
@@ -1017,7 +1018,7 @@ export default {
           trigger: 'item'
         },
         bmap: {
-          center: [104.114129, 37.550339],
+          center: [114.2522942178, 30.6054677499],
           zoom: 5,
           roam: true,
           mapStyle: {
