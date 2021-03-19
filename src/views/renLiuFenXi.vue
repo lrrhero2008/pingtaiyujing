@@ -149,6 +149,6 @@ export default {
 
 .box01,
 .box07 {
-  opacity: 0;
+  display: none;
 }
 </style>

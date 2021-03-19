@@ -12,9 +12,10 @@ import { mockXHR } from './mock/'
 // 	return Array.from({length:len}, v=> Math.floor(Math.random()*(max-min))+min);
 // }
 
-if(process.env.NODE_ENV == 'development'){
-  mockXHR();
-}
+// if(process.env.NODE_ENV == 'development'){
+//   mockXHR();
+// }
+mockXHR();
 
 Vue.config.productionTip = false
 Vue.component('v-chart', ECharts)
