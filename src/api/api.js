@@ -29,7 +29,7 @@ function getStores(data) {
 //商品销售排行
 function getRank(data) {
   return request({
-    url: "/api/papi/oms/sales-statistics/turnoverStatistics",
+    url: "/papi/oms/sales-statistics/turnoverStatistics",
     method: 'get',
     data
   });

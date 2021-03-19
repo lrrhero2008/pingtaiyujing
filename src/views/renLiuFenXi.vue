@@ -17,10 +17,10 @@
         </cloumn-item>
 
         <cloumn-item class="item-box box03" :title="`街区近日新增人数概况：`">
-          <XinZengRenShu :data="data.recentIncreaseData"/>
+          <XinZengRenShu :data="data.recentIncreaseData" />
         </cloumn-item>
         <cloumn-item class="item-box box04" :title="`街区游客各时间段人数情况：`">
-          <JingQuRenShu :data="data.periodTimeData"/>
+          <JingQuRenShu :data="data.periodTimeData" />
         </cloumn-item>
       </div>
       <div class="item">
@@ -145,5 +145,10 @@ export default {
 }
 .box06 {
   height: 314px;
+}
+
+.box01,
+.box07 {
+  opacity: 0;
 }
 </style>
