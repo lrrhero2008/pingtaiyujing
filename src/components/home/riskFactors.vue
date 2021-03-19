@@ -50,11 +50,11 @@ export default {
             roseType: "area",
 
             data: [
-              { value: 70, name: "道路危险" },
-              { value: 58, name: "火灾风险" },
+              { value: 10, name: "道路危险" },
+              { value: 0, name: "火灾风险" },
               { value: 12, name: "人员风险" },
-              { value: 40, name: "爆破风险" },
-              { value: 28, name: "顶板风险" },
+              { value: 0, name: "爆破风险" },
+              { value: 6, name: "顶板风险" },
             ],
             label: {
               show: false,

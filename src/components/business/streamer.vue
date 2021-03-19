@@ -1,7 +1,7 @@
 <template>
   <section class="streamer">
     <div class="streamer-wrap">
-      <img src="~@/assets/streamer.jpg" />
+      <img src="~@/assets/live.png" />
     </div>
 
   </section>

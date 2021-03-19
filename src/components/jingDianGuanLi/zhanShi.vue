@@ -1,28 +1,28 @@
 <template>
   <section class="wrap">
-    <div class="form">
+    <!-- <div class="form">
       <input type="text" placeholder="请输入关键字" />
       <div class="icon-search"></div>
-    </div>
+    </div> -->
     <ul class="list flex">
       <li>
         <p>搜索符合景点</p>
-        <span>9</span>
+        <span>5</span>
         <p>个</p>
       </li>
       <li>
         <p>开发景点</p>
-        <span>8</span>
+        <span>5</span>
         <p>个</p>
       </li>
       <li>
         <p>关闭景点</p>
-        <span>1</span>
+        <span>0</span>
         <p>个</p>
       </li>
       <li>
         <p>待开发景点</p>
-        <span>5</span>
+        <span>0</span>
         <p>个</p>
       </li>
     </ul>

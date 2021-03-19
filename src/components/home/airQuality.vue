@@ -3,13 +3,13 @@
     <v-chart class="chart" :option="option" />
     <div class="weather">
       <ul>
-        <li><span class="icon-sun"></span><span>晴天</span></li>
-        <li><span class="icon-temperature"></span><span>21</span></li>
+        <li><span class="icon-sun"></span><span>小雨</span></li>
+        <li><span class="icon-temperature"></span><span>13</span></li>
         <li>
-          <span class="icon-aqi-icon"></span><span>271<small>AQI</small></span>
+          <span class="icon-aqi-icon"></span><span>40<small>AQI</small></span>
         </li>
         <li>
-          <span class="icon-pm10-icon"></span><span>189<small>UG/M</small></span>
+          <span class="icon-pm10-icon"></span><span>63<small>UG/M</small></span>
         </li>
       </ul>
     </div>
@@ -86,7 +86,7 @@ export default {
             },
             data: [
               {
-                value: 62.5,
+                value: 40,
               },
             ],
           },

@@ -47,7 +47,7 @@ export default {
         },
         series: [
           {
-            data: [55, 60, 40, 72, 57],
+            data: [0, 0, 0, 0, 0],
             type: "bar",
             label: {
               show: true,

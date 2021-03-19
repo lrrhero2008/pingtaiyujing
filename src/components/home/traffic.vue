@@ -1,10 +1,10 @@
 <template>
   <section class="flex event-page">
     <div class="event-amount">
-      <div class="yellow-bg">11</div>
+      <div class="yellow-bg">7</div>
       <p>预警</p>
     </div>
-    <div class="event-main">
+    <!-- <div class="event-main">
       <p class="event-title">预警告警记录</p>
       <div class="event-list">
         <table>
@@ -38,7 +38,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
     <div class="event-map">
       <p class="event-title">交通拥堵路况：</p>
       <div class="map-wrap">

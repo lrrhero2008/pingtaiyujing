@@ -95,7 +95,7 @@ export default {
         series: [{
             name: "事故总数",
             type: "bar",
-            data: [120, 96, 77, 53, 70],
+            data: [0, 0, 0, 0, 0],
             itemStyle: {
               color: {
                 type: "linear",
@@ -119,7 +119,7 @@ export default {
           {
             name: "处理完成",
             type: "bar",
-            data: [90, 110, 89, 62, 75],
+            data: [0, 0, 0, 0, 0],
             itemStyle: {
               color: {
                 type: "linear",
@@ -143,7 +143,7 @@ export default {
           {
             name: "未处理",
             type: "bar",
-            data: [95, 74, 89, 45, 69],
+            data: [0, 0, 0, 0, 0],
             itemStyle: {
               color: {
                 type: "linear",
@@ -168,7 +168,7 @@ export default {
             name: "未名数据",
             type: "line",
             yAxisIndex: 1,
-            data: [90, 130, 90, 100, 95],
+            data: [0, 0, 0, 0, 0],
             itemStyle: {
               color: "#00e7ff",
             },

@@ -30,8 +30,8 @@ use([
   GridComponent,
 ]);
 
-var dataSales = [55, 60, 40, 72, 57]
-var dataAge = [15, 40, 20, 52, 27]
+var dataSales = [0, 0, 0, 0, 0]
+var dataAge = [0, 0, 0, 0, 0]
 
 export default {
   components: {},
@@ -49,13 +49,13 @@ export default {
           left: '0'
         },
         grid: {
-          x: 30,
-          y: 50,
+          x: 0,
+          y: 0,
           x2: 0,
-          y2: 40
+          y2: 0
         },
         xAxis: {
-          data: ["广州", "广州", "广州", "广州", "广州"],
+          data: ["咸享酒店", "寻宝记", "乌篷船宴", "星巴克", "女儿红"],
           axisLine: {
             lineStyle: {
               color: "#103e4f",

@@ -10,9 +10,9 @@
             <th>
               <div class="bg">地址</div>
             </th>
-            <th>
+            <!-- <th>
               <div class="bg">销量</div>
-            </th>
+            </th> -->
           </tr>
         </thead>
         <tbody class="store-list-wrap" :class="{ 'animate-up': animateUp }">
@@ -25,11 +25,11 @@
             <td>
               <div class="bg2">{{ store.address }}</div>
             </td>
-            <td>
+            <!-- <td>
               <div class="bg2">
                 {{ store.sales }}
               </div>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
@@ -45,16 +45,13 @@ export default {
       animateUp: false,
       timer: null,
       stores: [
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "48" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "23" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "52" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "66" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "29" },
-        { name: "孔乙己土特产", address: "鲁迅中路178号", sales: "33" },
-        { name: "丁大姓年糕店", address: "鲁迅中路178号", sales: "46" },
-        { name: "吉祥混沌", address: "鲁迅中路178号", sales: "62" },
-        { name: "水星记", address: "鲁迅中路178号", sales: "89" },
-        { name: "老绍兴臭豆腐", address: "鲁迅中路178号", sales: "102" },
+        { name: "咸享酒店", address: "鲁迅中路179号", sales: "48" },
+        { name: "寻宝记", address: "鲁迅中路5号", sales: "23" },
+        { name: "绍兴宴", address: "鲁迅中路海澜之家西南20米", sales: "52" },
+        { name: "几荷.乌篷船宴", address: "鲁迅中路21号", sales: "66" },
+        { name: "星巴克", address: "鲁迅中路209号", sales: "29" },
+        { name: "越乡农家", address: "鲁迅中路44号", sales: "33" },
+        { name: "女儿红", address: "中兴南路146号", sales: "46" },
       ],
     };
   },

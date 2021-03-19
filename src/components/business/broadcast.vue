@@ -26,18 +26,7 @@ export default {
     return {
       animateUp: false,
       timer: null,
-      activities: [
-        { name: "正宗的绍兴臭豆腐买一送一" },
-        { name: "王星行全场9.5折，大采购呀" },
-        { name: "王星行全场9.5折，大采购呀" },
-        { name: "正宗的绍兴臭豆腐买一送一" },
-        { name: "王星行全场9.5折，大采购呀" },
-        { name: "正宗的绍兴臭豆腐买一送一" },
-        { name: "王星行全场9.5折，大采购呀" },
-        { name: "正宗的绍兴臭豆腐买一送一" },
-        { name: "王星行全场9.5折，大采购呀" },
-        { name: "正宗的绍兴臭豆腐买一送一" },
-      ],
+      activities: [],
     };
   },
   methods: {
