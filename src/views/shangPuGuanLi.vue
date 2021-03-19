@@ -123,4 +123,7 @@ export default {
 .box05 {
   height: 405px;
 }
+.box04 {
+  display: none;
+}
 </style>
