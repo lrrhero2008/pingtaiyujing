@@ -25,7 +25,7 @@
       <cloumn-item class="small-item" :title="`风险因素：`">
         <risk-factors slot></risk-factors>
       </cloumn-item>
-      <cloumn-item class="big-item" :title="`交通拥堵情况预警：`">
+      <cloumn-item class="big-item box07" :title="`交通拥堵情况预警：`">
         <traffic slot></traffic>
       </cloumn-item>
       <cloumn-item class="small-item" :title="`警卫执勤情况：`">
@@ -96,5 +96,8 @@ export default {
 }
 .flex {
   align-items: start;
+}
+.box07 {
+  opacity: 0;
 }
 </style>
