@@ -74,7 +74,7 @@ export default {
       });
     },
   },
-  mounted() {
+  created() {
     this.timer = setInterval(this.getData, 10000);
   },
   beforeDestroy() {

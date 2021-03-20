@@ -98,7 +98,7 @@ export default {
 }
 
 .item-box.box01 {
-  height: 250px;
+  height: 280px;
 }
 .item-box.box04 {
   width: 560px;

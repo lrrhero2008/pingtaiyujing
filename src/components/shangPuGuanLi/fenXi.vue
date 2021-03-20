@@ -30,10 +30,9 @@ export default {
       option: {
         grid: {
           top: "5%",
-          left: "1%",
+          left: "0%",
           right: "1%",
           bottom: "5%",
-          containLabel: true,
         },
         tooltip: {
           show: false,
@@ -74,96 +73,87 @@ export default {
           axisLabel: {
             show: true,
             interval: 0,
-            padding: [0, 0, 0, 0],
+            verticalAlign: "bottom",
+            padding: [0, 0, 18, 0],
             align: "left",
             margin: 0,
             textStyle: {
-              color: "#ffffff",
-              fontSize: 16,
+              color: "#a3fffe",
+              fontSize: 14,
             },
           },
           axisTick: {
             show: false,
           },
-          data: ["5次", "8次", "12次"],
+          data: ["女性消费者：", "销售总额：", "男性消费者："],
         },
         series: [
           {
             //真实数值条形图
             name: "真实值",
             type: "bar", //pictorialBar
-            barWidth: "20%",
+            barWidth: "25",
             itemStyle: {
-              normal: {
-                borderWidth: 0,
-                color: {
-                  x: 0,
-                  y: 0,
-                  x2: 1,
-                  y2: 0,
-                  colorStops: [
-                    {
-                      offset: 0,
-                      color: "#2A2C4B",
-                    },
-                    {
-                      offset: 1,
-                      color: "#E33747",
-                    },
-                  ],
-                },
+              borderWidth: 0,
+              type: "linear",
+              color: {
+                x: 0,
+                y: 0,
+                x2: 1,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#00aaee",
+                  },
+                  {
+                    offset: 1,
+                    color: "#a3fffe",
+                  },
+                ],
               },
-              barBorderRadius: 10,
             },
             label: {
               show: false,
             },
             data: value,
-            z: 0,
+            z: 1,
           },
           {
             //辅助方格图形
             name: "辅助值",
             type: "pictorialBar",
-            barWidth: "22%",
+            barWidth: "25",
             symbol: "rect",
             symbolRepeat: "true",
-            symbolMargin: "80%",
-            symbolSize: ["20%", "100%"],
-            symbolOffset: ["150%", "0%"],
+            symbolMargin: "4",
+            symbolSize: ["1", "100%"],
+            symbolOffset: ["0", "0%"],
             itemStyle: {
-              normal: {
-                color: "#051F54",
-              },
-              barBorderRadius: 10,
+              color: "#001f22",
             },
             label: {
-              normal: {
-                color: "#fff",
-                show: false,
-                position: ["100%", "10%"],
-                fontSize: 16,
-                formatter: function (params) {
-                  //console.info(params);
-                  return " " + (value[params.dataIndex] * 100).toFixed(2) + "%";
-                },
+              color: "#fff",
+              show: false,
+              position: ["100%", "10%"],
+              fontSize: 16,
+              formatter: function (params) {
+                //console.info(params);
+                return " " + (value[params.dataIndex] * 100).toFixed(2) + "%";
               },
             },
             data: [1, 1, 1],
-            z: 1,
+            z: 2,
           },
           {
             //辅助背景图形
             name: "背景条",
             type: "bar", //pictorialBar
-            barWidth: "20%",
+            barWidth: "25",
             barGap: "-100%",
             itemStyle: {
-              normal: {
-                borderWidth: 0,
-                color: "rgba(151,89,255,0.2)",
-              },
-              barBorderRadius: 10,
+              borderWidth: 0,
+              color: "rgba(2,94,109,0.2)",
             },
             data: [1, 1, 1],
             z: 0,
@@ -180,8 +170,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.chart {
-  display: none;
-}
-</style>
+<style scoped></style>
